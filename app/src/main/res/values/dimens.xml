@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="marginStandard">8dp</dimen>
+    <dimen name="maginElements">16dp</dimen>
+
+    <dimen name="label">20sp</dimen>
+    <dimen name="edit_text">20sp</dimen>
+    <dimen name="info">18sp</dimen>
+    <dimen name="UI_value">52sp</dimen>
+    <dimen name="button">20dp</dimen>
+    <dimen name="subtitle">28sp</dimen>
+    <dimen name="title">22sp</dimen>
+</resources>

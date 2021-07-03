@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Insulyna</string>
+
+    <!-- HOME -->
+    <string name="app_title">Calcolatore di Unità di Insulina</string>
+    <string name="title_insulin_units">Unità di Insulina:</string>
+    <string name="saved_food">Cibi salvati</string>
+    <string name="title_meal">PASTO</string>
+    <string name="carbo_tot">Carboidrati totali (g):</string>
+    <string name="glycemia_premeal">Glicemia prepandiale (mg/dl):</string>
+    <string name="title_add_carbo">AGGIUNGI CARBOIDRATI</string>
+    <string name="exact_value">Valore esatto (g):</string>
+    <string name="proportion">proporzione</string>
+    <string name="carbo_on_100">Carboidrati/100g (g):</string>
+    <string name="eaten_quantity">Quantità prodotto (g):</string>
+    <string name="add_to_total">Aggiungi al totale</string>
+    <string name="placeholder_UI">0,00</string>
+    <string name="settings_icon">settings icon</string>
+
+    <!-- PREFERENCES -->
+</resources>
