@@ -37,10 +37,53 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    
+    <ImageView
+        android:id="@+id/syringeImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginStandard"
+        android:contentDescription="@string/syringe_image"
+        android:src="@drawable/ic_syringe"
+        app:layout_constraintEnd_toStartOf="@id/btnSavedFood"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar" />
+
+    <TextView
+        android:id="@+id/units_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginStandard"
+        android:text="@string/title_insulin_units"
+        app:layout_constraintBottom_toTopOf="@id/units_value"
+        app:layout_constraintEnd_toEndOf="@id/syringeImg"
+        app:layout_constraintStart_toStartOf="@id/syringeImg"
+        app:layout_constraintTop_toTopOf="@id/syringeImg" />
+
+    <TextView
+        android:id="@+id/units_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginStandard"
+        android:text="@string/placeholder_UI"
+        app:layout_constraintBottom_toBottomOf="@id/syringeImg"
+        app:layout_constraintEnd_toEndOf="@id/syringeImg"
+        app:layout_constraintStart_toStartOf="@id/syringeImg"
+        app:layout_constraintTop_toBottomOf="@id/units_label" />
+
+    <TextView
+        android:id="@+id/btnSavedFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/button"
+        android:text="@string/saved_food"
+        android:background="@drawable/background_button"
+        android:backgroundTint="@color/green"
+        app:drawableLeftCompat="@drawable/ic_cards"
+        app:layout_constraintBottom_toBottomOf="@id/syringeImg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/syringeImg"
+        app:layout_constraintTop_toTopOf="@id/syringeImg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
