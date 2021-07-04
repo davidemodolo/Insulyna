@@ -27,6 +27,13 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="little_label">
+        <item name="android:textSize">@dimen/info</item>
+        <item name="android:textColor">@color/green</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:gravity">center</item>
+    </style>
+
     <style name="sub_title">
         <item name="android:textSize">@dimen/subtitle</item>
         <item name="android:textColor">@color/green</item>

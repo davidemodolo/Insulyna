@@ -46,6 +46,7 @@
         android:layout_margin="@dimen/marginStandard"
         android:contentDescription="@string/syringe_image"
         android:src="@drawable/ic_syringe"
+        app:layout_constraintBottom_toTopOf="@id/layoutMeal"
         app:layout_constraintEnd_toStartOf="@id/btnSavedFood"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/topBar" />
@@ -92,9 +93,12 @@
         android:id="@+id/layoutMeal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/marginElements"
+        android:layout_marginStart="@dimen/marginElements"
+        android:layout_marginEnd="@dimen/marginElements"
+        android:layout_marginBottom="@dimen/marginElements"
         android:background="@drawable/background"
         android:backgroundTint="@color/bg_grey"
+        app:layout_constraintBottom_toTopOf="@id/layoutCarbo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/syringeImg">
@@ -114,8 +118,8 @@
             style="@style/sub_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/marginStandard"
             android:layout_marginStart="@dimen/marginStandard"
+            android:layout_marginTop="@dimen/marginStandard"
             android:layout_marginEnd="@dimen/marginStandard"
             android:drawablePadding="@dimen/marginStandard"
             android:text="@string/title_meal"
@@ -129,7 +133,10 @@
             style="@style/label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/marginStandard"
+            android:layout_marginStart="@dimen/marginElements"
+            android:layout_marginTop="@dimen/marginStandard"
+            android:layout_marginEnd="@dimen/marginStandard"
+            android:layout_marginBottom="@dimen/marginStandard"
             android:text="@string/carbo_tot"
             app:layout_constraintBottom_toTopOf="@id/glycemia"
             app:layout_constraintEnd_toStartOf="@id/editCarboTot"
@@ -139,7 +146,7 @@
         <EditText
             android:id="@+id/editCarboTot"
             style="@style/label"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginStandard"
             android:autofillHints="0,00"
@@ -155,10 +162,10 @@
             style="@style/label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginElements"
             android:layout_marginTop="@dimen/marginStandard"
             android:layout_marginEnd="@dimen/marginStandard"
             android:layout_marginBottom="@dimen/marginStandard"
-            android:layout_marginStart="@dimen/marginElements"
             android:text="@string/glycemia_premeal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/glycemiaEdit"
@@ -168,12 +175,13 @@
         <EditText
             android:id="@+id/glycemiaEdit"
             style="@style/label"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginStandard"
             android:layout_marginTop="@dimen/marginStandard"
             android:layout_marginEnd="@dimen/marginElements"
             android:layout_marginBottom="@dimen/marginStandard"
-            android:layout_marginStart="@dimen/marginStandard"            android:autofillHints="0,00"
+            android:autofillHints="0,00"
             android:hint="@string/placeholder_UI"
             android:inputType="numberDecimal"
             app:layout_constraintBottom_toBottomOf="@id/glycemia"
@@ -183,4 +191,177 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutCarbo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginElements"
+        android:layout_marginEnd="@dimen/marginElements"
+        android:layout_marginBottom="@dimen/marginElements"
+        android:background="@drawable/background"
+        android:backgroundTint="@color/bg_grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutMeal">
+
+        <TextView
+            android:id="@+id/titleAddCarbo"
+            style="@style/sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginStandard"
+            android:layout_marginTop="@dimen/marginStandard"
+            android:layout_marginEnd="@dimen/marginStandard"
+            android:text="@string/title_add_carbo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/addCarboLabel"
+            style="@style/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginElements"
+            android:layout_marginTop="@dimen/marginStandard"
+            android:layout_marginEnd="@dimen/marginStandard"
+            android:layout_marginBottom="@dimen/marginStandard"
+            android:text="@string/exact_value"
+            app:layout_constraintBottom_toTopOf="@id/proportion"
+            app:layout_constraintEnd_toStartOf="@id/addCarboEdit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleAddCarbo" />
+
+        <EditText
+            android:id="@+id/addCarboEdit"
+            style="@style/label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginStandard"
+            android:layout_marginTop="@dimen/marginStandard"
+            android:layout_marginEnd="@dimen/marginElements"
+            android:layout_marginBottom="@dimen/marginStandard"
+            android:autofillHints="0,00"
+            android:hint="@string/placeholder_UI"
+            android:inputType="numberDecimal"
+            app:layout_constraintBottom_toBottomOf="@id/addCarboLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/addCarboLabel"
+            app:layout_constraintTop_toTopOf="@id/addCarboLabel" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_margin="@dimen/marginElements"
+            android:background="@color/green"
+            app:layout_constraintBottom_toBottomOf="@id/proportion"
+            app:layout_constraintEnd_toStartOf="@id/proportion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/proportion" />
+
+        <TextView
+            android:id="@+id/proportion"
+            style="@style/little_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/marginStandard"
+            android:text="@string/proportion"
+            app:layout_constraintEnd_toStartOf="@id/line2"
+            app:layout_constraintStart_toEndOf="@id/line"
+            app:layout_constraintTop_toBottomOf="@id/addCarboLabel" />
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_margin="@dimen/marginElements"
+            android:background="@color/green"
+            app:layout_constraintBottom_toBottomOf="@id/proportion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/proportion"
+            app:layout_constraintTop_toTopOf="@id/proportion" />
+
+        <TextView
+            android:id="@+id/carboOn100Label"
+            style="@style/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginElements"
+            android:layout_marginTop="@dimen/marginStandard"
+            android:layout_marginEnd="@dimen/marginStandard"
+            android:layout_marginBottom="@dimen/marginStandard"
+            android:text="@string/carbo_on_100"
+            app:layout_constraintBottom_toTopOf="@id/eatenQuantityLabel"
+            app:layout_constraintEnd_toStartOf="@id/carboOn100Edit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/proportion" />
+
+        <EditText
+            android:id="@+id/carboOn100Edit"
+            style="@style/label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginStandard"
+            android:layout_marginTop="@dimen/marginStandard"
+            android:layout_marginEnd="@dimen/marginElements"
+            android:layout_marginBottom="@dimen/marginStandard"
+            android:autofillHints="0,00"
+            android:hint="@string/placeholder_UI"
+            android:inputType="numberDecimal"
+            app:layout_constraintBottom_toBottomOf="@id/carboOn100Label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/carboOn100Label"
+            app:layout_constraintTop_toTopOf="@id/carboOn100Label" />
+
+        <TextView
+            android:id="@+id/eatenQuantityLabel"
+            style="@style/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginElements"
+            android:layout_marginTop="@dimen/marginStandard"
+            android:layout_marginEnd="@dimen/marginStandard"
+            android:layout_marginBottom="@dimen/marginStandard"
+            android:text="@string/eaten_quantity"
+            app:layout_constraintBottom_toTopOf="@id/btnAddCarbo"
+            app:layout_constraintEnd_toStartOf="@id/eatenQuantityEdit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/carboOn100Label" />
+
+        <EditText
+            android:id="@+id/eatenQuantityEdit"
+            style="@style/label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginStandard"
+            android:layout_marginTop="@dimen/marginStandard"
+            android:layout_marginEnd="@dimen/marginElements"
+            android:layout_marginBottom="@dimen/marginStandard"
+            android:autofillHints="0,00"
+            android:hint="@string/placeholder_UI"
+            android:inputType="numberDecimal"
+            app:layout_constraintBottom_toBottomOf="@id/eatenQuantityLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/eatenQuantityLabel"
+            app:layout_constraintTop_toTopOf="@id/eatenQuantityLabel" />
+
+        <TextView
+            android:id="@+id/btnAddCarbo"
+            style="@style/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/marginElements"
+            android:background="@drawable/background_button"
+            android:backgroundTint="@color/green"
+            android:text="@string/add_to_total"
+            app:drawableLeftCompat="@drawable/ic_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/eatenQuantityLabel" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
