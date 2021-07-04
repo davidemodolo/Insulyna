@@ -2,6 +2,7 @@
 <resources>
     <dimen name="marginStandard">8dp</dimen>
     <dimen name="marginElements">16dp</dimen>
+    <dimen name="bigPadding">32dp</dimen>
 
     <dimen name="label">20sp</dimen>
     <dimen name="edit_text">20sp</dimen>

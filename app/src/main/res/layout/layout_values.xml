@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/preferenceName"
+        style="@style/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginElements"
+        android:layout_marginEnd="@dimen/marginStandard"
+        android:layout_marginBottom="@dimen/marginStandard"
+        android:text="@string/dailyUI_label" />
+
+    <EditText
+        android:id="@+id/preferenceValue"
+        style="@style/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStandard"
+        android:layout_marginEnd="@dimen/marginStandard"
+        android:layout_marginBottom="@dimen/marginStandard"
+        android:autofillHints="0,00"
+        android:hint="@string/placeholder_UI"
+        android:inputType="numberDecimal" />
+
+    <ImageView
+        android:id="@+id/preferenceQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/marginStandard"
+        android:layout_marginEnd="@dimen/marginElements"
+        android:layout_marginBottom="@dimen/marginStandard"
+        android:contentDescription="@string/question_mark"
+        android:src="@drawable/ic_questionmark" />
+</LinearLayout>

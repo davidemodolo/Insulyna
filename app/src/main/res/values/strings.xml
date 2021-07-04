@@ -38,5 +38,7 @@
     <string name="dedication">per Giulia, da Davide</string>
 
     <string name="back_button">back button</string>
+    <string name="question_mark">question mark</string>
+    <string name="color_theme">color theme</string>
 
 </resources>
