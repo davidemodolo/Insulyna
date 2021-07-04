@@ -12,47 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/marginStandard"
         android:text="@string/backup"
-        app:layout_constraintBottom_toTopOf="@id/dialogText"
+        app:layout_constraintBottom_toTopOf="@id/btnCopy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/dialogText"
-        style="@style/label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/marginElements"
-        android:padding="@dimen/marginStandard"
-        android:text="@string/save_backup_label"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/importLabel"
-        app:layout_constraintTop_toBottomOf="@id/dialogTitle" />
-
-    <TextView
-        android:id="@+id/importLabel"
-        style="@style/label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/marginElements"
-        android:text="@string/import_data"
-        app:layout_constraintBottom_toTopOf="@id/btnCopy"
-        app:layout_constraintEnd_toStartOf="@id/importEdit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dialogText" />
-
-    <EditText
-        android:id="@+id/importEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:hint="@string/placeholder_paste_here"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="@id/importLabel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/importLabel"
-        app:layout_constraintTop_toTopOf="@id/importLabel" />
 
     <TextView
         android:id="@+id/btnCopy"
@@ -67,6 +30,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/importLabel" />
+        app:layout_constraintTop_toBottomOf="@id/dialogTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

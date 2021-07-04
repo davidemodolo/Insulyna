@@ -44,8 +44,22 @@
     <string name="color_theme">color theme</string>
     <string name="color_to_choose">color to choose</string>
     <string name="copy">Copia i dati</string>
-    <string name="save_backup_label">Inserisci il testo dei dati salvati oppure premi sul pulsante apposito per generare il backup. Salvalo per esempio in una chat o in un file di testo.</string>
+    <string name="save_backup_label">Inserisci il testo dei dati salvati oppure premi sul pulsante apposito per generare il backup. Incollalo per esempio in una chat o in un file di testo.</string>
     <string name="import_data">Importa dati:</string>
     <string name="placeholder_paste_here">incolla qui</string>
+
+    <!-- SAVED FOOD -->
+    <string name="food_title">Cibi salvati</string>
+    <string name="search">Cerca</string>
+    <string name="edit">modifica</string>
+    <string name="delete">elimina</string>
+    <string name="name">Nome:</string>
+    <string name="carbo">Carboidrati (g):</string>
+    <string name="switchA">per 100g</string>
+    <string name="switchB">a pezzo</string>
+    <string name="background_image">background image</string>
+    <string name="add_fab">add fab</string>
+    <string name="placeholder_food">Cibo placeholder</string>
+    <string name="placeholder_carboinfood">125g/100g carbo</string>
 
 </resources>
