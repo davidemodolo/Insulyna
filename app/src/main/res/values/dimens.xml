@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="marginStandard">8dp</dimen>
-    <dimen name="maginElements">16dp</dimen>
+    <dimen name="marginElements">16dp</dimen>
 
     <dimen name="label">20sp</dimen>
     <dimen name="edit_text">20sp</dimen>

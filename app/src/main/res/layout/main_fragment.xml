@@ -52,9 +52,10 @@
 
     <TextView
         android:id="@+id/units_label"
+        style="@style/label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/marginStandard"
+        android:layout_marginTop="@dimen/marginStandard"
         android:text="@string/title_insulin_units"
         app:layout_constraintBottom_toTopOf="@id/units_value"
         app:layout_constraintEnd_toEndOf="@id/syringeImg"
@@ -63,6 +64,7 @@
 
     <TextView
         android:id="@+id/units_value"
+        style="@style/ui_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/marginStandard"
@@ -74,16 +76,111 @@
 
     <TextView
         android:id="@+id/btnSavedFood"
+        style="@style/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/button"
-        android:text="@string/saved_food"
         android:background="@drawable/background_button"
         android:backgroundTint="@color/green"
+        android:text="@string/saved_food"
         app:drawableLeftCompat="@drawable/ic_cards"
         app:layout_constraintBottom_toBottomOf="@id/syringeImg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/syringeImg"
         app:layout_constraintTop_toTopOf="@id/syringeImg" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutMeal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginElements"
+        android:background="@drawable/background"
+        android:backgroundTint="@color/bg_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/syringeImg">
+
+        <ImageView
+            android:id="@+id/btnReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/marginElements"
+            android:contentDescription="@string/reset_meal_button"
+            android:src="@drawable/ic_reset"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/titleMeal"
+            style="@style/sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginStandard"
+            android:layout_marginStart="@dimen/marginStandard"
+            android:layout_marginEnd="@dimen/marginStandard"
+            android:drawablePadding="@dimen/marginStandard"
+            android:text="@string/title_meal"
+            app:drawableEndCompat="@drawable/ic_forkknife"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/carboTotLabel"
+            style="@style/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/marginStandard"
+            android:text="@string/carbo_tot"
+            app:layout_constraintBottom_toTopOf="@id/glycemia"
+            app:layout_constraintEnd_toStartOf="@id/editCarboTot"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleMeal" />
+
+        <EditText
+            android:id="@+id/editCarboTot"
+            style="@style/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/marginStandard"
+            android:autofillHints="0,00"
+            android:hint="@string/placeholder_UI"
+            android:inputType="numberDecimal"
+            app:layout_constraintBottom_toBottomOf="@id/carboTotLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/carboTotLabel"
+            app:layout_constraintTop_toTopOf="@id/carboTotLabel" />
+
+        <TextView
+            android:id="@+id/glycemia"
+            style="@style/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginStandard"
+            android:layout_marginEnd="@dimen/marginStandard"
+            android:layout_marginBottom="@dimen/marginStandard"
+            android:layout_marginStart="@dimen/marginElements"
+            android:text="@string/glycemia_premeal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/glycemiaEdit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/carboTotLabel" />
+
+        <EditText
+            android:id="@+id/glycemiaEdit"
+            style="@style/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginStandard"
+            android:layout_marginEnd="@dimen/marginElements"
+            android:layout_marginBottom="@dimen/marginStandard"
+            android:layout_marginStart="@dimen/marginStandard"            android:autofillHints="0,00"
+            android:hint="@string/placeholder_UI"
+            android:inputType="numberDecimal"
+            app:layout_constraintBottom_toBottomOf="@id/glycemia"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/glycemia"
+            app:layout_constraintTop_toTopOf="@id/glycemia" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
