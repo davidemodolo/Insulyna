@@ -9,4 +9,5 @@
     <color name="pink_light">#EECBE4</color>
 
     <color name="bg_grey">#F2F2F2</color>
+    <color name="hint_grey">#828282</color>
 </resources>
