@@ -23,6 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/marginElements"
+        android:padding="@dimen/marginStandard"
         android:text="@string/save_backup_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +44,7 @@
 
     <EditText
         android:id="@+id/importEdit"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:autofillHints=""
         android:hint="@string/placeholder_paste_here"

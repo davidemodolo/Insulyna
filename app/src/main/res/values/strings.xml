@@ -44,7 +44,7 @@
     <string name="color_theme">color theme</string>
     <string name="color_to_choose">color to choose</string>
     <string name="copy">Copia i dati</string>
-    <string name="save_backup_label">Inserisci il testo dei dati salvati oppure premi sul pulsante apposito per generare il backup.\nSalvalo per esempio in una chat o in un file di testo.</string>
+    <string name="save_backup_label">Inserisci il testo dei dati salvati oppure premi sul pulsante apposito per generare il backup. Salvalo per esempio in una chat o in un file di testo.</string>
     <string name="import_data">Importa dati:</string>
     <string name="placeholder_paste_here">incolla qui</string>
 
