@@ -15,9 +15,28 @@
     <string name="eaten_quantity">Quantità prodotto (g):</string>
     <string name="add_to_total">Aggiungi al totale</string>
     <string name="placeholder_UI">0,00</string>
+
     <string name="settings_icon">settings icon</string>
     <string name="syringe_image">syringe image</string>
     <string name="reset_meal_button">reset meal button</string>
 
     <!-- PREFERENCES -->
+    <string name="preferences_title">Preferenze</string>
+    <string name="values_title">VALORI PERSONALI</string>
+    <string name="dailyUI_label">Fabbisogno giornaliero (UI):</string>
+    <string name="dailyUI_extended">Fabbisogno insulinico giornaliero</string>
+    <string name="goal_label">Obiettivo glicemtico (mg/dl):</string>
+    <string name="goal_extended">Obiettivo glicemtico</string>
+    <string name="rateo_label">Insulina/Carboidrati (mg/dl):</string>
+    <string name="rateo_extended">Rapporto insulina/carboidrati</string>
+    <string name="sensibility_label">Sensibilità insulinica (mg/dl):</string>
+    <string name="sensibility_extended">Fattore di sensibilità insulinica</string>
+    <string name="save_button">Salva</string>
+    <string name="backup">Backup cibi salvati</string>
+    <string name="credits">Crediti e Informazioni</string>
+    <string name="theme">Colori app:</string>
+    <string name="dedication">per Giulia, da Davide</string>
+
+    <string name="back_button">back button</string>
+
 </resources>
