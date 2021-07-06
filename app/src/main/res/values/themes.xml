@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Insulyna" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="ThemeGreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/green</item>
         <item name="colorPrimaryVariant">@color/green_light</item>
@@ -13,6 +13,56 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/black</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="ThemePink" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/pink</item>
+        <item name="colorPrimaryVariant">@color/pink_light</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/pink</item>
+        <item name="colorSecondaryVariant">@color/pink_light</item>
+        <item name="colorOnSecondary">@color/black</item>
+    </style>
+    <style name="ThemeRed" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorPrimaryVariant">@color/red_light</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/red</item>
+        <item name="colorSecondaryVariant">@color/red_light</item>
+        <item name="colorOnSecondary">@color/black</item>
+    </style>
+    <style name="ThemePurple" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple</item>
+        <item name="colorPrimaryVariant">@color/purple_light</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/purple</item>
+        <item name="colorSecondaryVariant">@color/purple_light</item>
+        <item name="colorOnSecondary">@color/black</item>
+    </style>
+    <style name="ThemeBlue" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryVariant">@color/blue_light</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/blue</item>
+        <item name="colorSecondaryVariant">@color/blue_light</item>
+        <item name="colorOnSecondary">@color/black</item>
+    </style>
+    <style name="ThemeYellow" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/yellow</item>
+        <item name="colorPrimaryVariant">@color/yellow_light</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/yellow</item>
+        <item name="colorSecondaryVariant">@color/yellow_light</item>
+        <item name="colorOnSecondary">@color/black</item>
+    </style>
     
     <style name="BottomSheedDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
@@ -21,7 +71,7 @@
     <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@android:color/transparent</item>
     </style>
-    
+
     <style name="app_title">
         <item name="android:textSize">@dimen/title</item>
         <item name="android:textColor">@color/white</item>
@@ -52,14 +102,14 @@
 
     <style name="little_label">
         <item name="android:textSize">@dimen/info</item>
-        <item name="android:textColor">@color/green</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
         <item name="android:textStyle">normal</item>
         <item name="android:gravity">center</item>
     </style>
 
     <style name="sub_title">
         <item name="android:textSize">@dimen/subtitle</item>
-        <item name="android:textColor">@color/green</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
         <item name="android:textStyle">normal</item>
         <item name="android:gravity">center</item>
     </style>
