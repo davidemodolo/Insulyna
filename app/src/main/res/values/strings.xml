@@ -61,5 +61,6 @@
     <string name="add_fab">add fab</string>
     <string name="placeholder_food">Cibo placeholder</string>
     <string name="placeholder_carboinfood">125g/100g carbo</string>
+    <string name="change_theme_label">Cambia tema</string>
 
 </resources>

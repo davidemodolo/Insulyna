@@ -1,4 +1,4 @@
-package com.davidemodolo.insulyna.ui.main
+package com.davidemodolo.insulyna
 
 import androidx.lifecycle.ViewModel
 

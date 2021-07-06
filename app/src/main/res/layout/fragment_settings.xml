@@ -11,7 +11,7 @@
         android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/green"
+        android:background="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/marginElements"
             android:background="@drawable/background_button"
-            android:backgroundTint="@color/green"
+            android:backgroundTint="?attr/colorPrimary"
             android:paddingStart="@dimen/bigPadding"
             android:paddingEnd="@dimen/bigPadding"
             android:text="@string/save_button"
@@ -98,7 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/marginElements"
         android:background="@drawable/background_button"
-        android:backgroundTint="@color/green"
+        android:backgroundTint="?attr/colorPrimary"
         android:text="@string/credits"
         app:drawableStartCompat="@drawable/ic_info"
         app:layout_constraintBottom_toTopOf="@id/btnBackup"
@@ -114,36 +114,29 @@
         android:layout_marginStart="@dimen/marginElements"
         android:layout_marginEnd="@dimen/marginElements"
         android:background="@drawable/background_button"
-        android:backgroundTint="@color/green"
+        android:backgroundTint="?attr/colorPrimary"
         android:text="@string/backup"
         app:drawableStartCompat="@drawable/ic_backup"
-        app:layout_constraintBottom_toTopOf="@id/btnColors"
+        app:layout_constraintBottom_toTopOf="@id/btnTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnCredits" />
-
     <TextView
-        android:id="@+id/themeLabel"
-        style="@style/label"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnTheme"
+        style="@style/button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/marginElements"
-        android:text="@string/theme"
-        app:layout_constraintBottom_toBottomOf="@id/btnColors"
-        app:layout_constraintEnd_toStartOf="@id/btnColors"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/btnColors" />
-
-    <ImageView
-        android:id="@+id/btnColors"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/marginElements"
-        android:src="@drawable/ic_color"
+        android:layout_marginStart="@dimen/marginElements"
+        android:layout_marginEnd="@dimen/marginElements"
+        android:background="@drawable/background_theme"
+        android:textColor="?attr/colorPrimary"
+        android:text="@string/change_theme_label"
         app:layout_constraintBottom_toTopOf="@id/dedication"
-        app:layout_constraintStart_toEndOf="@id/themeLabel"
-        app:layout_constraintTop_toBottomOf="@id/btnBackup"
-        android:contentDescription="@string/color_theme" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBackup" />
+
 
     <TextView
         android:id="@+id/dedication"

@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/marginElements"
         android:background="@drawable/background_button"
-        android:backgroundTint="@color/green"
+        android:backgroundTint="?attr/colorPrimary"
         android:text="@string/copy"
         app:drawableLeftCompat="@drawable/ic_copy"
         app:layout_constraintBottom_toBottomOf="parent"

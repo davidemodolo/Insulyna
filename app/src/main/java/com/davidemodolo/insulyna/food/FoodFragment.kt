@@ -1,27 +1,27 @@
-package com.davidemodolo.insulyna
+package com.davidemodolo.insulyna.food
 
 import android.os.Bundle
-import android.text.Layout
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.constraintlayout.widget.ConstraintLayout
-import com.davidemodolo.insulyna.ui.main.MainFragment
-import com.google.android.material.bottomsheet.BottomSheetDialog
+import android.widget.ImageView
+import androidx.navigation.fragment.findNavController
+import com.davidemodolo.insulyna.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class FoodFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = FoodFragment()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         val view = inflater.inflate(R.layout.fragment_food, container, false)
+        val btnBack = view.findViewById<ImageView>(R.id.btnBack)
+        btnBack.setOnClickListener {
+            findNavController().navigate(R.id.mainFragment)
+        }
         val fab = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
         fab.setOnClickListener {
             /*val bsd = BottomSheetDialog(requireContext(), R.style.BottomSheedDialogTheme)

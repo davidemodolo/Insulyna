@@ -12,7 +12,7 @@
         tools:layout="@layout/main_activity" />
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.davidemodolo.insulyna.ui.main.MainFragment"
+        android:name="com.davidemodolo.insulyna.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main">
     <action
@@ -26,7 +26,7 @@
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/foodFragment"
-        android:name="com.davidemodolo.insulyna.FoodFragment"
+        android:name="com.davidemodolo.insulyna.food.FoodFragment"
         android:label="fragment_food"
         tools:layout="@layout/fragment_food" />
 </navigation>

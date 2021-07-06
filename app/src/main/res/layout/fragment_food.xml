@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FoodFragment">
+    tools:context=".food.FoodFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/green"
+        android:background="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -46,7 +46,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topBar" />
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:tint="?attr/colorPrimaryVariant" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/seachContainer"
@@ -64,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_button"
-            android:backgroundTint="@color/green_light"
+            android:backgroundTint="?attr/colorPrimaryVariant"
             android:drawableStart="@drawable/ic_search"
             android:drawablePadding="@dimen/marginStandard"
             android:hint="@string/search" />
@@ -86,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/marginElements"
-        android:background="@color/green"
+        android:background="?attr/colorPrimary"
         android:clickable="true"
         android:contentDescription="@string/add_fab"
         android:src="@drawable/ic_add"

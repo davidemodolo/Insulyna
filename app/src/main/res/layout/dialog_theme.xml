@@ -17,12 +17,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
+    <GridLayout
         android:id="@+id/colorsLayout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal"
+        android:layout_margin="@dimen/marginElements"
+        android:columnCount="3"
+        android:rowCount="@integer/material_motion_duration_long_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/color_to_choose"
-            android:src="@drawable/ic_color" />
+            android:src="@drawable/theme_icon_green" />
 
         <ImageView
             android:id="@+id/color2"
@@ -42,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/color_to_choose"
-            android:src="@drawable/ic_color" />
+            android:src="@drawable/theme_icon_pink" />
 
         <ImageView
             android:id="@+id/color3"
@@ -50,13 +52,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/color_to_choose"
-            android:src="@drawable/ic_color" />
+            android:src="@drawable/theme_icon_purple" />
 
         <ImageView
             android:id="@+id/color4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/color_to_choose"
-            android:src="@drawable/ic_color" />
-    </LinearLayout>
+            android:src="@drawable/theme_icon_red" />
+        <ImageView
+            android:id="@+id/color5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/color_to_choose"
+            android:src="@drawable/theme_icon_blue" />
+        <ImageView
+            android:id="@+id/color6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/color_to_choose"
+            android:src="@drawable/theme_icon_yellow" />
+    </GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
