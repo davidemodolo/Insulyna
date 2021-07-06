@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 
 
@@ -20,6 +21,7 @@ class MainFragment : Fragment() {
 
     private lateinit var btnReset: ImageView
     private lateinit var btnAddCarbo: TextView
+    private lateinit var viewModel: AppViewModel
 
 
     override fun onCreateView(
@@ -39,6 +41,10 @@ class MainFragment : Fragment() {
         btnSavedFood.setOnClickListener {
             findNavController().navigate(R.id.foodFragment)
         }
+
+        viewModel = ViewModelProvider(requireActivity()).get(AppViewModel::class.java)
+
+
         return view
     }
 

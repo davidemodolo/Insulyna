@@ -66,8 +66,6 @@
             android:layout_height="wrap_content"
             android:background="@drawable/background_button"
             android:backgroundTint="?attr/colorPrimaryVariant"
-            android:drawableStart="@drawable/ic_search"
-            android:drawablePadding="@dimen/marginStandard"
             android:hint="@string/search" />
     </com.google.android.material.textfield.TextInputLayout>
 
