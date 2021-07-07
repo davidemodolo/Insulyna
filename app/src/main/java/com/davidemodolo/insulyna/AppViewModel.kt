@@ -6,12 +6,12 @@ import com.davidemodolo.insulyna.food.Food
 
 class AppViewModel : ViewModel() {
     private var foodToEdit: Food? = null
-    fun setFoodToEdit(food: Food) {
+    fun setFoodToAdd(food: Food) {
         foodToEdit = food
     }
 
-    fun getFoodToEdit(): Food {
-        return foodToEdit!!
+    fun getFoodToAdd(): Food? {
+        return foodToEdit
     }
 
 

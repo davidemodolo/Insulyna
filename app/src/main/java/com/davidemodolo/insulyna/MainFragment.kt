@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -42,8 +44,20 @@ class MainFragment : Fragment() {
             findNavController().navigate(R.id.foodFragment)
         }
 
-        viewModel = ViewModelProvider(requireActivity()).get(AppViewModel::class.java)
 
+        val addCarboEdit = view.findViewById<EditText>(R.id.addCarboEdit)
+        val carboOn100Edit = view.findViewById<EditText>(R.id.carboOn100Edit)
+        //val eatenQuantityEdit = view.findViewById<EditText>(R.id.eatenQuantityEdit)
+
+
+        viewModel = ViewModelProvider(requireActivity()).get(AppViewModel::class.java)
+        val foodTMP = viewModel.getFoodToAdd()
+        if(foodTMP!=null) {
+            if(foodTMP.piece)
+                addCarboEdit.setText(foodTMP.carbo.toString())
+            else
+                carboOn100Edit.setText(foodTMP.carbo.toString())
+        }
 
         return view
     }

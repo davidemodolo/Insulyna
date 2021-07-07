@@ -7,7 +7,7 @@
     <string name="saved_food">Cibi salvati</string>
     <string name="title_meal">PASTO</string>
     <string name="carbo_tot">Carboidrati totali (g):</string>
-    <string name="glycemia_premeal">Glicemia prepandiale (mg/dl):</string>
+    <string name="glycemia_premeal">Glicemia (mg/dl):</string>
     <string name="title_add_carbo">AGGIUNGI CARBOIDRATI</string>
     <string name="exact_value">Valore esatto (g):</string>
     <string name="proportion">proporzione</string>
