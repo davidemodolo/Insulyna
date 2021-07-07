@@ -63,7 +63,7 @@
     <string name="add_fab">add fab</string>
     <string name="placeholder_food">Cibo placeholder</string>
     <string name="placeholder_carboinfood">125g/100g carbo</string>
-
+    <string name="add_food">AGGIUNGI CIBO</string>
 
     <string name="disclaimer_text">Quest\'app è stata pensata e sviluppata per semplificare il convivere col diabete.\nNon mi assumo alcuna responsabilità in caso di danni e/o problemi dovuti all\'utilizzo della stessa.\nChiama il tuo medico per qualsiasi dubbio.</string>
 

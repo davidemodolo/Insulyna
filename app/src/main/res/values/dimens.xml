@@ -4,7 +4,7 @@
     <dimen name="marginElements">16dp</dimen>
     <dimen name="bigPadding">32dp</dimen>
 
-    <dimen name="label">22sp</dimen>
+    <dimen name="label">20sp</dimen>
     <dimen name="edit_text">20sp</dimen>
     <dimen name="info">18sp</dimen>
     <dimen name="UI_value">52sp</dimen>

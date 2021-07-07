@@ -84,6 +84,7 @@ class SettingsFragment : Fragment() {
             "Riavvia l'app per apportare la modifica",
             Toast.LENGTH_SHORT
         ).show()
+
     }
 
 }

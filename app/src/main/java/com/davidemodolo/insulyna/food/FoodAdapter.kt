@@ -43,6 +43,7 @@ class FoodAdapter(private val foodList: ArrayList<Food>, private val foodListene
 
             carbo.text = carboString
             btnEdit.setOnClickListener {
+                longPressLayout.visibility = View.INVISIBLE
                 foodListener.onFoodListener(food, holder.layoutPosition, EDIT)
             }
 
@@ -54,7 +55,10 @@ class FoodAdapter(private val foodList: ArrayList<Food>, private val foodListene
                 foodListener.onFoodListener(food, holder.layoutPosition, MAIN)
             }
             holder.itemView.setOnLongClickListener {
-                longPressLayout.visibility = View.VISIBLE
+                if(longPressLayout.visibility == View.VISIBLE)
+                    longPressLayout.visibility = View.INVISIBLE
+                else
+                    longPressLayout.visibility = View.VISIBLE
                 true
             }
         }

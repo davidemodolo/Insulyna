@@ -23,6 +23,7 @@
         <item name="colorSecondary">@color/pink</item>
         <item name="colorSecondaryVariant">@color/pink_light</item>
         <item name="colorOnSecondary">@color/black</item>
+        <item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialog</item>
     </style>
     <style name="ThemeRed" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -33,6 +34,7 @@
         <item name="colorSecondary">@color/red</item>
         <item name="colorSecondaryVariant">@color/red_light</item>
         <item name="colorOnSecondary">@color/black</item>
+        <item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialog</item>
     </style>
     <style name="ThemePurple" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -43,6 +45,7 @@
         <item name="colorSecondary">@color/purple</item>
         <item name="colorSecondaryVariant">@color/purple_light</item>
         <item name="colorOnSecondary">@color/black</item>
+        <item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialog</item>
     </style>
     <style name="ThemeBlue" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -53,6 +56,7 @@
         <item name="colorSecondary">@color/blue</item>
         <item name="colorSecondaryVariant">@color/blue_light</item>
         <item name="colorOnSecondary">@color/black</item>
+        <item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialog</item>
     </style>
     <style name="ThemeYellow" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -63,6 +67,7 @@
         <item name="colorSecondary">@color/yellow</item>
         <item name="colorSecondaryVariant">@color/yellow_light</item>
         <item name="colorOnSecondary">@color/black</item>
+        <item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialog</item>
     </style>
 
     <style name="CustomBottomSheetDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
