@@ -29,10 +29,10 @@
 
     <ImageView
         android:id="@+id/preferenceQuestion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/label"
+        android:layout_height="@dimen/label"
         android:layout_gravity="center"
-        android:layout_marginEnd="@dimen/marginElements"
+        android:layout_marginEnd="@dimen/marginStandard"
         android:contentDescription="@string/question_mark"
         android:src="@drawable/ic_questionmark"
         app:tint="?attr/colorPrimary" />

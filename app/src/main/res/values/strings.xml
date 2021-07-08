@@ -25,8 +25,8 @@
     <string name="values_title">VALORI PERSONALI</string>
     <string name="dailyUI_label">Fabbisogno giornaliero (UI):</string>
     <string name="dailyUI_extended">Fabbisogno insulinico giornaliero</string>
-    <string name="goal_label">Obiettivo glicemtico (mg/dl):</string>
-    <string name="goal_extended">Obiettivo glicemtico</string>
+    <string name="goal_label">Obiettivo glicemico (mg/dl):</string>
+    <string name="goal_extended">Obiettivo glicemico</string>
     <string name="rateo_label">Insulina/Carboidrati (mg/dl):</string>
     <string name="rateo_extended">Rapporto insulina/carboidrati</string>
     <string name="sensibility_label">Sensibilità insulinica (mg/dl):</string>
