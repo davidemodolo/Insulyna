@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -8,7 +8,11 @@
     <TextView
         android:id="@+id/preferenceName"
         style="@style/label"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/marginElements"
         android:layout_marginEnd="@dimen/marginStandard"
@@ -18,6 +22,9 @@
     <EditText
         android:id="@+id/preferenceValue"
         style="@style/label"
+        app:layout_constraintTop_toTopOf="@id/preferenceName"
+        app:layout_constraintBottom_toBottomOf="@id/preferenceName"
+        app:layout_constraintStart_toEndOf="@id/preferenceName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/marginStandard"
@@ -30,10 +37,13 @@
     <ImageView
         android:id="@+id/preferenceQuestion"
         android:layout_width="@dimen/label"
+        app:layout_constraintTop_toTopOf="@id/preferenceName"
+        app:layout_constraintBottom_toBottomOf="@id/preferenceName"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_height="@dimen/label"
         android:layout_gravity="center"
         android:layout_marginEnd="@dimen/marginStandard"
         android:contentDescription="@string/question_mark"
         android:src="@drawable/ic_questionmark"
         app:tint="?attr/colorPrimary" />
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

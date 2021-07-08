@@ -6,8 +6,7 @@
     android:layout_marginStart="@dimen/marginStandard"
     android:layout_marginTop="@dimen/marginStandard"
     android:layout_marginEnd="@dimen/marginStandard"
-    android:background="@drawable/background_button"
-    android:backgroundTint="@color/bg_grey">
+    android:background="@drawable/background_theme">
 
     <TextView
         android:id="@+id/name"

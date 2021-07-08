@@ -5,16 +5,27 @@
 
     <color name="green">#35BF7E</color>
     <color name="green_light">#CBEEDA</color>
+    <color name="green_ll">#F5FFF9</color>
+
     <color name="pink">#BF35B1</color>
     <color name="pink_light">#EECBE4</color>
+    <color name="pink_ll">#FFF5FC</color>
+
     <color name="blue">#35A6BF</color>
     <color name="blue_light">#CBE8EE</color>
+    <color name="blue_ll">#F5FEFF</color>
+
     <color name="purple">#8235BF</color>
     <color name="purple_light">#E3CBEE</color>
+    <color name="purple_ll">#FAF5FF</color>
+
     <color name="red">#BF3535</color>
     <color name="red_light">#EECBCB</color>
+    <color name="red_ll">#FFF5F5</color>
+
     <color name="yellow">#BCBF35</color>
     <color name="yellow_light">#EEE6CB</color>
+    <color name="yellow_ll">#FFFFF5</color>
 
     <color name="bg_grey">#F2F2F2</color>
     <color name="hint_grey">#828282</color>

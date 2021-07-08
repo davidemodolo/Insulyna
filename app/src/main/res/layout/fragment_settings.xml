@@ -18,8 +18,8 @@
 
         <ImageView
             android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/topbarIcons"
+            android:layout_height="@dimen/topbarIcons"
             android:layout_margin="@dimen/marginStandard"
             android:contentDescription="@string/back_button"
             android:src="@drawable/ic_back"
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/marginElements"
         android:background="@drawable/background"
-        android:backgroundTint="@color/bg_grey"
+        android:backgroundTint="?attr/colorOnPrimary"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"

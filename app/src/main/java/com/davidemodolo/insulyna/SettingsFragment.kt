@@ -11,8 +11,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.*
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.fragment.findNavController
-import org.w3c.dom.Text
 
 class SettingsFragment : Fragment() {
     private val PREF_NAME = "data"
@@ -33,56 +33,60 @@ class SettingsFragment : Fragment() {
             findNavController().navigate(R.id.mainFragment)
         }
         val sharedPref: SharedPreferences? = activity?.getSharedPreferences(PREF_NAME, 0)
-        var daily = sharedPref?.getString(DAILY, "")
-        var goal = sharedPref?.getString(GOAL, "")
-        var rateo = sharedPref?.getString(RATEO, "")
-        var sens = sharedPref?.getString(SENS, "")
+        var daily = sharedPref?.getFloat(DAILY, 0.0F)
+        var goal = sharedPref?.getFloat(GOAL, 0.0F)
+        var rateo = sharedPref?.getFloat(RATEO, 0.0F)
+        var sens = sharedPref?.getFloat(SENS, 0.0F)
 
-        val dailyLayout = view.findViewById<LinearLayout>(R.id.daily)
+        val dailyLayout = view.findViewById<ConstraintLayout>(R.id.daily)
         val dailyName = dailyLayout.findViewById<TextView>(R.id.preferenceName)
         dailyName.text = getString(R.string.dailyUI_label)
         val dailyValue = dailyLayout.findViewById<EditText>(R.id.preferenceValue)
-        dailyValue.setText(daily)
+        if(daily != 0.0F)
+            dailyValue.setText(daily.toString())
         val dailyQuestion = dailyLayout.findViewById<ImageView>(R.id.preferenceQuestion)
         dailyQuestion.setOnClickListener {
             //funzione che apre un dialog globale della chat, passando un parametro per le cose da vedere
             //bottone globale del dialog che salva il valore
         }
 
-        val goalLayout = view.findViewById<LinearLayout>(R.id.goal)
+        val goalLayout = view.findViewById<ConstraintLayout>(R.id.goal)
         val goalName = goalLayout.findViewById<TextView>(R.id.preferenceName)
         goalName.text = getString(R.string.goal_label)
         val goalValue = goalLayout.findViewById<EditText>(R.id.preferenceValue)
-        goalValue.setText(goal)
+        if(goal != 0.0F)
+            goalValue.setText(goal.toString())
         //val goalQuestion = goalLayout.findViewById<ImageView>(R.id.preferenceQuestion)
 
-        val rateoLayout = view.findViewById<LinearLayout>(R.id.rateo)
+        val rateoLayout = view.findViewById<ConstraintLayout>(R.id.rateo)
         val rateoName = rateoLayout.findViewById<TextView>(R.id.preferenceName)
         rateoName.text = getString(R.string.rateo_label)
         val rateoValue = rateoLayout.findViewById<EditText>(R.id.preferenceValue)
-        rateoValue.setText(rateo)
+        if(rateo != 0.0F)
+            rateoValue.setText(rateo.toString())
         //val rateoQuestion = rateoLayout.findViewById<ImageView>(R.id.preferenceQuestion)
 
-        val sensLayout = view.findViewById<LinearLayout>(R.id.sensitivity)
+        val sensLayout = view.findViewById<ConstraintLayout>(R.id.sensitivity)
         val sensName = sensLayout.findViewById<TextView>(R.id.preferenceName)
         sensName.text = getString(R.string.sensibility_label)
         val sensValue = sensLayout.findViewById<EditText>(R.id.preferenceValue)
-        sensValue.setText(sens)
+        if(sens != 0.0F)
+            sensValue.setText(sens.toString())
         //val sensQuestion = sensLayout.findViewById<ImageView>(R.id.preferenceQuestion)
 
         val btnSave = view.findViewById<TextView>(R.id.btnSavePreference)
         btnSave.setOnClickListener {
-            daily = dailyValue.text.toString()
-            goal = goalValue.text.toString()
-            rateo = rateoValue.text.toString()
-            sens = sensValue.text.toString()
+            daily = stringToFloat(dailyValue.text.toString())
+            goal =stringToFloat(goalValue.text.toString())
+            rateo = stringToFloat(rateoValue.text.toString())
+            sens = stringToFloat(sensValue.text.toString())
 
             val editor = sharedPref?.edit()
 
-            editor?.putString(DAILY, daily)
-            editor?.putString(GOAL, goal)
-            editor?.putString(RATEO, rateo)
-            editor?.putString(SENS, sens)
+            editor?.putFloat(DAILY, daily!!)
+            editor?.putFloat(GOAL, goal!!)
+            editor?.putFloat(RATEO, rateo!!)
+            editor?.putFloat(SENS, sens!!)
 
             editor?.apply()
             Toast.makeText(
@@ -146,6 +150,18 @@ class SettingsFragment : Fragment() {
         findNavController().navigate(R.id.settingsFragment)
         themeDialog.dismiss()
 
+    }
+
+    private fun stringToFloat(string: String): Float {
+        if (string =="") return 0.0F
+        var stringTMP = ""
+        string.forEach {
+            stringTMP += if (it == ',')
+                '.'
+            else
+                it
+        }
+        return stringTMP.toFloat()
     }
 
 }

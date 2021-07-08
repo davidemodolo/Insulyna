@@ -30,8 +30,8 @@
 
         <ImageView
             android:id="@+id/settingsIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/topbarIcons"
+            android:layout_height="@dimen/topbarIcons"
             android:layout_margin="@dimen/marginStandard"
             android:contentDescription="@string/settings_icon"
             android:src="@drawable/ic_settings"
@@ -99,7 +99,7 @@
         android:layout_marginEnd="@dimen/marginElements"
         android:layout_marginBottom="@dimen/marginElements"
         android:background="@drawable/background"
-        android:backgroundTint="@color/bg_grey"
+        android:backgroundTint="?attr/colorOnPrimary"
         app:layout_constraintBottom_toTopOf="@id/layoutCarbo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -205,7 +205,7 @@
         android:layout_marginEnd="@dimen/marginElements"
         android:layout_marginBottom="@dimen/marginElements"
         android:background="@drawable/background"
-        android:backgroundTint="@color/bg_grey"
+        android:backgroundTint="?attr/colorOnPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

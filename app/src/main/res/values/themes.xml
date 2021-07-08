@@ -4,7 +4,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/green</item>
         <item name="colorPrimaryVariant">@color/green_light</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/green_ll</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/green</item>
         <item name="colorSecondaryVariant">@color/green_light</item>
@@ -18,7 +18,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/pink</item>
         <item name="colorPrimaryVariant">@color/pink_light</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/pink_ll</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/pink</item>
         <item name="colorSecondaryVariant">@color/pink_light</item>
@@ -29,7 +29,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/red</item>
         <item name="colorPrimaryVariant">@color/red_light</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/red_ll</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/red</item>
         <item name="colorSecondaryVariant">@color/red_light</item>
@@ -40,7 +40,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple</item>
         <item name="colorPrimaryVariant">@color/purple_light</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/purple_ll</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/purple</item>
         <item name="colorSecondaryVariant">@color/purple_light</item>
@@ -51,7 +51,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blue</item>
         <item name="colorPrimaryVariant">@color/blue_light</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/blue_ll</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/blue</item>
         <item name="colorSecondaryVariant">@color/blue_light</item>
@@ -62,7 +62,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/yellow</item>
         <item name="colorPrimaryVariant">@color/yellow_light</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/yellow_ll</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/yellow</item>
         <item name="colorSecondaryVariant">@color/yellow_light</item>

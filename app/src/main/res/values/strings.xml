@@ -12,7 +12,7 @@
     <string name="exact_value">Valore esatto (g):</string>
     <string name="proportion">proporzione</string>
     <string name="carbo_on_100">Carboidrati/100g (g):</string>
-    <string name="eaten_quantity">Quantità prodotto (g):</string>
+    <string name="eaten_quantity">Quantità mangiata (g):</string>
     <string name="add_to_total">Aggiungi al totale</string>
     <string name="placeholder_UI">0,00</string>
 
