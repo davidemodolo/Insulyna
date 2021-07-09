@@ -55,7 +55,7 @@ class FoodAdapter(private val foodList: ArrayList<Food>, private val foodListene
                 foodListener.onFoodListener(food, holder.layoutPosition, MAIN)
             }
             holder.itemView.setOnLongClickListener {
-                if(longPressLayout.visibility == View.VISIBLE)
+                if (longPressLayout.visibility == View.VISIBLE)
                     longPressLayout.visibility = View.INVISIBLE
                 else
                     longPressLayout.visibility = View.VISIBLE

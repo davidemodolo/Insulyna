@@ -42,15 +42,16 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
         btnBack.setOnClickListener {
             findNavController().navigate(R.id.mainFragment)
         }
-        for (i in 1..5){
-            foods.add(Food("Cibo $i", i, i%2==0))
+        for (i in 1..5) {
+            foods.add(Food("Cibo $i", i, i % 2 == 0))
         }
         foodRecycler = view.findViewById(R.id.recyclerFood)
         foodRecycler.adapter = FoodAdapter(foods, this)
         val fab = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
         fab.setOnClickListener {
             val dialog = BottomSheetDialog(requireContext())
-            val bottomSheet = layoutInflater.inflate(R.layout.dialog_bottom_addfood, container, false)
+            val bottomSheet =
+                layoutInflater.inflate(R.layout.dialog_bottom_addfood, container, false)
             dialog.setContentView(bottomSheet)
             val nameText = dialog.findViewById<TextInputEditText>(R.id.nameText)
             val carboText = dialog.findViewById<TextInputEditText>(R.id.carboText)
@@ -60,7 +61,7 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
             btn100?.setOnClickListener {
                 val nameTmp = nameText?.text.toString()
                 val carboTmp = carboText?.text.toString()
-                if(nameTmp!="" && carboTmp!="") {
+                if (nameTmp != "" && carboTmp != "") {
                     foods.add(Food(nameTmp, carboTmp.toInt(), false))
                     foodRecycler.adapter = FoodAdapter(foods, this)
                     dialog.dismiss()
@@ -69,7 +70,7 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
             btnPiece?.setOnClickListener {
                 val nameTmp = nameText?.text.toString()
                 val carboTmp = carboText?.text.toString()
-                if(nameTmp!="" && carboTmp!="") {
+                if (nameTmp != "" && carboTmp != "") {
                     foods.add(Food(nameTmp, carboTmp.toInt(), true))
                     foodRecycler.adapter = FoodAdapter(foods, this)
                     dialog.dismiss()
@@ -93,10 +94,9 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
                     searchedList.add(it)
                 }
             }
-            if (searchedText!= "") {
+            if (searchedText != "") {
                 foodRecycler.adapter = FoodAdapter(searchedList, this)
-            }
-            else {
+            } else {
                 foodRecycler.adapter = FoodAdapter(foods, this)
             }
         }
@@ -141,8 +141,9 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
         }
         return costs[s2_.length]
     }
+
     override fun onFoodListener(food: Food, position: Int, command: Int) {
-        when(command){
+        when (command) {
             MAIN -> {
                 viewModel.setFoodToAdd(food)
                 val text = "${food.name} riportato"
@@ -153,13 +154,14 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
                 ).show()
                 findNavController().navigate(R.id.mainFragment)
             }
-            DELETE ->{
+            DELETE -> {
                 foods.remove(food)
                 foodRecycler.adapter = FoodAdapter(foods, this)
             }
-            EDIT ->{
+            EDIT -> {
                 val dialog = BottomSheetDialog(requireContext())
-                val bottomSheet = layoutInflater.inflate(R.layout.dialog_bottom_addfood, containerForFun, false)
+                val bottomSheet =
+                    layoutInflater.inflate(R.layout.dialog_bottom_addfood, containerForFun, false)
                 dialog.setContentView(bottomSheet)
                 val nameText = dialog.findViewById<TextInputEditText>(R.id.nameText)
                 nameText?.setText(food.name)
@@ -171,7 +173,7 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
                 btn100?.setOnClickListener {
                     val nameTmp = nameText?.text.toString()
                     val carboTmp = carboText?.text.toString()
-                    if(nameTmp!="" && carboTmp!="") {
+                    if (nameTmp != "" && carboTmp != "") {
                         foods.remove(food)
                         foods.add(Food(nameTmp, carboTmp.toInt(), false))
                         foodRecycler.adapter = FoodAdapter(foods, this)
@@ -181,7 +183,7 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
                 btnPiece?.setOnClickListener {
                     val nameTmp = nameText?.text.toString()
                     val carboTmp = carboText?.text.toString()
-                    if(nameTmp!="" && carboTmp!="") {
+                    if (nameTmp != "" && carboTmp != "") {
                         foods.remove(food)
                         foods.add(Food(nameTmp, carboTmp.toInt(), true))
                         foodRecycler.adapter = FoodAdapter(foods, this)
@@ -191,7 +193,7 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
                 dialog.show()
 
             }
-            else ->{
+            else -> {
                 Toast.makeText(
                     requireContext(),
                     "Errore riscontrato",

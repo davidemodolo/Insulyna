@@ -21,9 +21,9 @@
         android:id="@+id/colorsLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_margin="@dimen/marginElements"
         android:columnCount="3"
+        android:gravity="center"
         android:rowCount="@integer/material_motion_duration_long_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,25 +32,25 @@
 
         <ImageView
             android:id="@+id/color1"
-            android:layout_marginEnd="@dimen/marginStandard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/marginStandard"
             android:contentDescription="@string/color_to_choose"
             android:src="@drawable/theme_icon_green" />
 
         <ImageView
             android:id="@+id/color2"
-            android:layout_marginEnd="@dimen/marginStandard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/marginStandard"
             android:contentDescription="@string/color_to_choose"
             android:src="@drawable/theme_icon_pink" />
 
         <ImageView
             android:id="@+id/color3"
-            android:layout_marginEnd="@dimen/marginStandard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/marginStandard"
             android:contentDescription="@string/color_to_choose"
             android:src="@drawable/theme_icon_purple" />
 
@@ -60,12 +60,14 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/color_to_choose"
             android:src="@drawable/theme_icon_red" />
+
         <ImageView
             android:id="@+id/color5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/color_to_choose"
             android:src="@drawable/theme_icon_blue" />
+
         <ImageView
             android:id="@+id/color6"
             android:layout_width="wrap_content"

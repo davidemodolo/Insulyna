@@ -121,6 +121,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnCredits" />
+
     <TextView
         android:id="@+id/btnTheme"
         style="@style/button"
@@ -130,8 +131,8 @@
         android:layout_marginStart="@dimen/marginElements"
         android:layout_marginEnd="@dimen/marginElements"
         android:background="@drawable/background_theme"
-        android:textColor="?attr/colorPrimary"
         android:text="@string/change_theme_label"
+        android:textColor="?attr/colorPrimary"
         app:layout_constraintBottom_toTopOf="@id/dedication"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

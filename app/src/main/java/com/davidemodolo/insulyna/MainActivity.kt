@@ -16,8 +16,7 @@ class MainActivity : AppCompatActivity() {
         switchTheme()
     }
 
-    fun switchTheme()
-    {
+    fun switchTheme() {
         val sharedPref: SharedPreferences = getSharedPreferences(PREF_NAME, 0)
 
         when (sharedPref.getString(THEME, "pink")) {

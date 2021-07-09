@@ -36,6 +36,10 @@ class MainFragment : Fragment() {
 
     private lateinit var carboTot: EditText
     private lateinit var glycemiaEdit: EditText
+    private lateinit var addCarboEdit: EditText
+    private lateinit var carboOn100Edit: EditText
+    private lateinit var eatenQuantityEdit: EditText
+
     private lateinit var uiValue: TextView
 
 
@@ -73,9 +77,11 @@ class MainFragment : Fragment() {
         }
 
 
-        val addCarboEdit = view.findViewById<EditText>(R.id.addCarboEdit)
-        val carboOn100Edit = view.findViewById<EditText>(R.id.carboOn100Edit)
-        val eatenQuantityEdit = view.findViewById<EditText>(R.id.eatenQuantityEdit)
+        addCarboEdit = view.findViewById(R.id.addCarboEdit)
+        carboOn100Edit = view.findViewById<EditText>(R.id.carboOn100Edit)
+        carboOn100Edit.addTextChangedListener { calculateCarboToAdd() }
+        eatenQuantityEdit = view.findViewById<EditText>(R.id.eatenQuantityEdit)
+        eatenQuantityEdit.addTextChangedListener { calculateCarboToAdd() }
         carboTot = view.findViewById(R.id.editCarboTot)
         carboTot.addTextChangedListener { calculateUI() }
         glycemiaEdit = view.findViewById(R.id.glycemiaEdit)
@@ -84,17 +90,19 @@ class MainFragment : Fragment() {
 
         val btnAddCarbo = view.findViewById<TextView>(R.id.btnAddCarbo)
         btnAddCarbo.setOnClickListener {
-            if (carboTot.text.toString() != "") {
-                val totalTMP = stringToFloat(carboTot.text.toString())
-                val value = totalTMP + stringToFloat(addCarboEdit.text.toString())
-                carboTot.setText(String.format("%.2f", value))
-                addCarboEdit.setText("")
-                addCarboEdit.clearFocus()
-                carboOn100Edit.setText("")
-                carboOn100Edit.clearFocus()
-                eatenQuantityEdit.setText("")
-                eatenQuantityEdit.clearFocus()
+            val totalTMP = if (carboTot.text.toString() == "") 0.0F
+            else {
+                stringToFloat(carboTot.text.toString())
             }
+            val value = totalTMP + stringToFloat(addCarboEdit.text.toString())
+            if(value != 0.0F)
+                carboTot.setText(String.format("%.2f", value))
+            addCarboEdit.setText("")
+            addCarboEdit.clearFocus()
+            carboOn100Edit.setText("")
+            carboOn100Edit.clearFocus()
+            eatenQuantityEdit.setText("")
+            eatenQuantityEdit.clearFocus()
         }
 
         val btnReset = view.findViewById<ImageView>(R.id.btnReset)
@@ -142,17 +150,19 @@ class MainFragment : Fragment() {
             val carboTOT = stringToFloat(carboTot.text.toString())
             val glycemiaTOT = stringToFloat(glycemiaEdit.text.toString())
             val result = carboTOT / rateo + (glycemiaTOT - goal) / sens
-            if(result > 0)
+            if (result > 0)
                 uiValue.text = String.format("%.2f", result)
             if (glycemiaTOT == 0.0F)
                 uiValue.text = getString(R.string.placeholder_UI)
         }
     }
-    /*
-    fun calculateCarboToAdd(){
-        carbo : 100 = x : eaten
-        carboToAdd = eaten*carbo/100
+
+    private fun calculateCarboToAdd(){
+        val carbo = stringToFloat(carboOn100Edit.text.toString())
+        val eaten = stringToFloat(eatenQuantityEdit.text.toString())
+        val result = carbo*eaten/100
+        addCarboEdit.setText(String.format("%.2f", result))
     }
-     */
+
 
 }

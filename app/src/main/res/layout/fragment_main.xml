@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -47,11 +47,11 @@
         android:layout_margin="@dimen/marginStandard"
         android:contentDescription="@string/syringe_image"
         android:src="@drawable/ic_syringe"
-        app:tint="?attr/colorPrimaryVariant"
         app:layout_constraintBottom_toTopOf="@id/layoutMeal"
         app:layout_constraintEnd_toStartOf="@id/btnSavedFood"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topBar" />
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:tint="?attr/colorPrimaryVariant" />
 
     <TextView
         android:id="@+id/units_label"
@@ -126,11 +126,11 @@
             android:layout_marginEnd="@dimen/marginStandard"
             android:drawablePadding="@dimen/marginStandard"
             android:text="@string/title_meal"
+            app:drawableEndCompat="@drawable/ic_forkknife"
+            app:drawableTint="?attr/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:drawableEndCompat="@drawable/ic_forkknife"
-            app:drawableTint="?attr/colorPrimary" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/carboTotLabel"
@@ -151,12 +151,12 @@
             android:id="@+id/editCarboTot"
             style="@style/editText"
             android:layout_width="0dp"
-            android:textColorHint="@color/hint_grey"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginStandard"
             android:autofillHints="0,00"
             android:hint="@string/placeholder_UI"
             android:inputType="numberDecimal"
+            android:textColorHint="@color/hint_grey"
             app:layout_constraintBottom_toBottomOf="@id/carboTotLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/carboTotLabel"
@@ -180,7 +180,6 @@
         <EditText
             android:id="@+id/glycemiaEdit"
             style="@style/editText"
-            android:textColorHint="@color/hint_grey"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/marginStandard"
@@ -190,6 +189,7 @@
             android:autofillHints="0,00"
             android:hint="@string/placeholder_UI"
             android:inputType="numberDecimal"
+            android:textColorHint="@color/hint_grey"
             app:layout_constraintBottom_toBottomOf="@id/glycemia"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/glycemia"
@@ -241,7 +241,6 @@
 
         <EditText
             android:id="@+id/addCarboEdit"
-            android:textColorHint="@color/hint_grey"
             style="@style/editText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -252,6 +251,7 @@
             android:autofillHints="0,00"
             android:hint="@string/placeholder_UI"
             android:inputType="numberDecimal"
+            android:textColorHint="@color/hint_grey"
             app:layout_constraintBottom_toBottomOf="@id/addCarboLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/addCarboLabel"
@@ -308,7 +308,6 @@
         <EditText
             android:id="@+id/carboOn100Edit"
             style="@style/editText"
-            android:textColorHint="@color/hint_grey"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/marginStandard"
@@ -318,6 +317,7 @@
             android:autofillHints="0,00"
             android:hint="@string/placeholder_UI"
             android:inputType="numberDecimal"
+            android:textColorHint="@color/hint_grey"
             app:layout_constraintBottom_toBottomOf="@id/carboOn100Label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/carboOn100Label"
@@ -341,7 +341,6 @@
         <EditText
             android:id="@+id/eatenQuantityEdit"
             style="@style/editText"
-            android:textColorHint="@color/hint_grey"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/marginStandard"
@@ -351,6 +350,7 @@
             android:autofillHints="0,00"
             android:hint="@string/placeholder_UI"
             android:inputType="numberDecimal"
+            android:textColorHint="@color/hint_grey"
             app:layout_constraintBottom_toBottomOf="@id/eatenQuantityLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/eatenQuantityLabel"
@@ -363,8 +363,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginElements"
             android:background="@drawable/background_button"
-            android:text="@string/add_to_total"
             android:backgroundTint="?attr/colorPrimary"
+            android:text="@string/add_to_total"
             app:drawableLeftCompat="@drawable/ic_add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
