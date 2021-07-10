@@ -36,7 +36,10 @@ class SettingsFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_settings, container, false)
         val btnBack = view.findViewById<ImageView>(R.id.btnBack)
         btnBack.setOnClickListener {
-            findNavController().navigate(R.id.mainFragment)
+            requireActivity().supportFragmentManager.beginTransaction()
+                .setCustomAnimations(R.anim.wait_anim, R.anim.slide_right)
+                .replace(R.id.nav_host_fragment, MainFragment()).commit()
+            //findNavController().navigate(R.id.mainFragment)
         }
         val sharedPref: SharedPreferences? = activity?.getSharedPreferences(PREF_NAME, 0)
         var daily = sharedPref?.getFloat(DAILY, 0.0F)
@@ -213,26 +216,44 @@ class SettingsFragment : Fragment() {
         when (title) {
             getString(R.string.rateo_extended) -> {
                 dialogBtn.setOnClickListener {
-                    val result = 500.0F / stringToFloat(dailyValue.text.toString())
-                    rateoValue.setText(String.format("%.2f", result))
-                    val sharedPref: SharedPreferences? =
-                        activity?.getSharedPreferences(PREF_NAME, 0)
-                    val editor = sharedPref?.edit()
-                    editor?.putFloat(RATEO, result)
-                    editor?.apply()
-                    questionDialog.dismiss()
+                    val value = stringToFloat(dailyValue.text.toString())
+                    if (value != 0.0F) {
+                        val result = 500.0F / value
+                        rateoValue.setText(String.format("%.2f", result))
+                        val sharedPref: SharedPreferences? =
+                            activity?.getSharedPreferences(PREF_NAME, 0)
+                        val editor = sharedPref?.edit()
+                        editor?.putFloat(RATEO, result)
+                        editor?.apply()
+                        questionDialog.dismiss()
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            "Manca il fabb. giornaliero",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             }
             getString(R.string.sensibility_extended) -> {
                 dialogBtn.setOnClickListener {
-                    val result = 1800.0F / stringToFloat(dailyValue.text.toString())
-                    sensValue.setText(String.format("%.2f", result))
-                    val sharedPref: SharedPreferences? =
-                        activity?.getSharedPreferences(PREF_NAME, 0)
-                    val editor = sharedPref?.edit()
-                    editor?.putFloat(SENS, result)
-                    editor?.apply()
-                    questionDialog.dismiss()
+                    val value = stringToFloat(dailyValue.text.toString())
+                    if (value != 0.0F) {
+                        val result = 1800.0F / stringToFloat(dailyValue.text.toString())
+                        sensValue.setText(String.format("%.2f", result))
+                        val sharedPref: SharedPreferences? =
+                            activity?.getSharedPreferences(PREF_NAME, 0)
+                        val editor = sharedPref?.edit()
+                        editor?.putFloat(SENS, result)
+                        editor?.apply()
+                        questionDialog.dismiss()
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            "Manca il fabb. giornaliero",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             }
             else -> {

@@ -15,9 +15,6 @@
         android:name="com.davidemodolo.insulyna.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main">
-    <action
-        android:id="@+id/action_nav_main"
-        app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -28,5 +25,12 @@
         android:id="@+id/foodFragment"
         android:name="com.davidemodolo.insulyna.food.FoodFragment"
         android:label="fragment_food"
-        tools:layout="@layout/fragment_food" />
+        tools:layout="@layout/fragment_food" >
+    </fragment>
+    <fragment
+        android:id="@+id/disclaimerFragment"
+        android:name="com.davidemodolo.insulyna.DisclaimerFragment"
+        android:label="fragment_disclaimer"
+        tools:layout="@layout/fragment_disclaimer" >
+    </fragment>
 </navigation>

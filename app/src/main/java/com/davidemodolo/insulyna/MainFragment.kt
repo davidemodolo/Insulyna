@@ -56,10 +56,7 @@ class MainFragment : Fragment() {
 
         if (sharedPref?.getBoolean(FIRST_START, true) == true) {
             //navigate to disclaimer
-            findNavController().navigate(R.id.settingsFragment)
-            val editor = sharedPref.edit()
-            editor?.putBoolean(FIRST_START, false)
-            editor?.apply()
+            findNavController().navigate(R.id.disclaimerFragment)
         }
         uiValue = view.findViewById(R.id.units_value)
         goal = sharedPref?.getFloat(GOAL, 0.0F)!!
@@ -68,7 +65,10 @@ class MainFragment : Fragment() {
 
         val btnSettings = view.findViewById<ImageView>(R.id.settingsIcon)
         btnSettings.setOnClickListener {
-            findNavController().navigate(R.id.settingsFragment)
+            requireActivity().supportFragmentManager.beginTransaction()
+                .setCustomAnimations(R.anim.wait_anim, R.anim.slide_in_from_left)
+                .replace(R.id.nav_host_fragment, SettingsFragment()).commit()
+            //findNavController().navigate(R.id.settingsFragment)
         }
 
         val btnSavedFood = view.findViewById<TextView>(R.id.btnSavedFood)
@@ -78,9 +78,9 @@ class MainFragment : Fragment() {
 
 
         addCarboEdit = view.findViewById(R.id.addCarboEdit)
-        carboOn100Edit = view.findViewById<EditText>(R.id.carboOn100Edit)
+        carboOn100Edit = view.findViewById(R.id.carboOn100Edit)
         carboOn100Edit.addTextChangedListener { calculateCarboToAdd() }
-        eatenQuantityEdit = view.findViewById<EditText>(R.id.eatenQuantityEdit)
+        eatenQuantityEdit = view.findViewById(R.id.eatenQuantityEdit)
         eatenQuantityEdit.addTextChangedListener { calculateCarboToAdd() }
         carboTot = view.findViewById(R.id.editCarboTot)
         carboTot.addTextChangedListener { calculateUI() }
@@ -97,12 +97,12 @@ class MainFragment : Fragment() {
             val value = totalTMP + stringToFloat(addCarboEdit.text.toString())
             if(value != 0.0F)
                 carboTot.setText(String.format("%.2f", value))
-            addCarboEdit.setText("")
-            addCarboEdit.clearFocus()
             carboOn100Edit.setText("")
             carboOn100Edit.clearFocus()
             eatenQuantityEdit.setText("")
             eatenQuantityEdit.clearFocus()
+            addCarboEdit.setText("")
+            addCarboEdit.clearFocus()
         }
 
         val btnReset = view.findViewById<ImageView>(R.id.btnReset)
