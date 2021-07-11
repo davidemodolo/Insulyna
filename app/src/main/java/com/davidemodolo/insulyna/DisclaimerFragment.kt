@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+
 
 
 class DisclaimerFragment : Fragment() {
@@ -38,10 +38,7 @@ class DisclaimerFragment : Fragment() {
 
         proceed.setOnClickListener {
             if (check.isChecked) {
-                requireActivity().supportFragmentManager.beginTransaction()
-                    .setCustomAnimations(R.anim.slide_right, R.anim.slide_right)
-                    .replace(R.id.nav_host_fragment, MainFragment()).commit()
-                //findNavController().navigate(R.id.mainFragment)
+                findNavController().navigate(R.id.mainFragment)
                 val editor = sharedPref?.edit()
                 editor?.putBoolean(FIRST_START, false)
                 editor?.apply()

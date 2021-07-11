@@ -13,7 +13,6 @@ import android.view.Window
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.fragment.findNavController
-import org.w3c.dom.Text
 
 class SettingsFragment : Fragment() {
     private val PREF_NAME = "data"
@@ -36,10 +35,7 @@ class SettingsFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_settings, container, false)
         val btnBack = view.findViewById<ImageView>(R.id.btnBack)
         btnBack.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .setCustomAnimations(R.anim.wait_anim, R.anim.slide_right)
-                .replace(R.id.nav_host_fragment, MainFragment()).commit()
-            //findNavController().navigate(R.id.mainFragment)
+            findNavController().navigate(R.id.mainFragment)
         }
         val sharedPref: SharedPreferences? = activity?.getSharedPreferences(PREF_NAME, 0)
         var daily = sharedPref?.getFloat(DAILY, 0.0F)

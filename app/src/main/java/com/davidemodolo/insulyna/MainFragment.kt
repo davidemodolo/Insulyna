@@ -13,17 +13,9 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import java.math.RoundingMode
-import kotlin.math.roundToInt
-import kotlin.math.roundToLong
-import kotlin.properties.Delegates
 
 
 class MainFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = MainFragment()
-    }
 
     private val PREF_NAME = "data"
     private val FIRST_START = "start"
@@ -58,6 +50,10 @@ class MainFragment : Fragment() {
             //navigate to disclaimer
             findNavController().navigate(R.id.disclaimerFragment)
         }
+
+        viewModel = ViewModelProvider(requireActivity()).get(AppViewModel::class.java)
+
+
         uiValue = view.findViewById(R.id.units_value)
         goal = sharedPref?.getFloat(GOAL, 0.0F)!!
         rateo = sharedPref.getFloat(RATEO, 0.0F)
@@ -65,10 +61,7 @@ class MainFragment : Fragment() {
 
         val btnSettings = view.findViewById<ImageView>(R.id.settingsIcon)
         btnSettings.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .setCustomAnimations(R.anim.wait_anim, R.anim.slide_in_from_left)
-                .replace(R.id.nav_host_fragment, SettingsFragment()).commit()
-            //findNavController().navigate(R.id.settingsFragment)
+            findNavController().navigate(R.id.settingsFragment)
         }
 
         val btnSavedFood = view.findViewById<TextView>(R.id.btnSavedFood)
@@ -83,6 +76,10 @@ class MainFragment : Fragment() {
         eatenQuantityEdit = view.findViewById(R.id.eatenQuantityEdit)
         eatenQuantityEdit.addTextChangedListener { calculateCarboToAdd() }
         carboTot = view.findViewById(R.id.editCarboTot)
+        if(viewModel.getCarbo()>0)
+        {
+            carboTot.setText(String.format("%.2f", viewModel.getCarbo()))
+        }
         carboTot.addTextChangedListener { calculateUI() }
         glycemiaEdit = view.findViewById(R.id.glycemiaEdit)
         glycemiaEdit.addTextChangedListener { calculateUI() }
@@ -95,18 +92,23 @@ class MainFragment : Fragment() {
                 stringToFloat(carboTot.text.toString())
             }
             val value = totalTMP + stringToFloat(addCarboEdit.text.toString())
-            if(value != 0.0F)
+            if(value != 0.0F) {
                 carboTot.setText(String.format("%.2f", value))
+                viewModel.setCarbo(value)
+            }
             carboOn100Edit.setText("")
             carboOn100Edit.clearFocus()
             eatenQuantityEdit.setText("")
             eatenQuantityEdit.clearFocus()
             addCarboEdit.setText("")
             addCarboEdit.clearFocus()
+            viewModel.resetFoodToAdd()
         }
 
         val btnReset = view.findViewById<ImageView>(R.id.btnReset)
         btnReset.setOnClickListener {
+            viewModel.resetFoodToAdd()
+            viewModel.setCarbo(0.0F)
             addCarboEdit.setText("")
             addCarboEdit.clearFocus()
             carboOn100Edit.setText("")
@@ -120,7 +122,6 @@ class MainFragment : Fragment() {
         }
 
 
-        viewModel = ViewModelProvider(requireActivity()).get(AppViewModel::class.java)
         val foodTMP = viewModel.getFoodToAdd()
         if (foodTMP != null) {
             if (foodTMP.piece)
@@ -148,6 +149,7 @@ class MainFragment : Fragment() {
     private fun calculateUI() {
         if (sens != 0.0F) {
             val carboTOT = stringToFloat(carboTot.text.toString())
+            viewModel.setCarbo(carboTOT)
             val glycemiaTOT = stringToFloat(glycemiaEdit.text.toString())
             val result = carboTOT / rateo + (glycemiaTOT - goal) / sens
             if (result > 0)
