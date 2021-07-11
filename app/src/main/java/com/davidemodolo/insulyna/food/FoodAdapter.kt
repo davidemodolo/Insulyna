@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.davidemodolo.insulyna.R
+import com.davidemodolo.insulyna.food.db.Food
 
 class FoodAdapter(private val foodList: ArrayList<Food>, private val foodListener: FoodListener) :
     RecyclerView.Adapter<FoodAdapter.ViewHolder>() {

@@ -1,7 +1,7 @@
 package com.davidemodolo.insulyna
 
 import androidx.lifecycle.ViewModel
-import com.davidemodolo.insulyna.food.Food
+import com.davidemodolo.insulyna.food.db.Food
 
 
 class AppViewModel : ViewModel() {
