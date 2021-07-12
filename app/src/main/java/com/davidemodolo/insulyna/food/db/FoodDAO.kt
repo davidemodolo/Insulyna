@@ -19,7 +19,7 @@ interface FoodDAO {
     suspend fun deleteFood(food: Food)
 
     @Query("UPDATE foods SET name=:name, carbo=:carbo, piece=:piece WHERE id=:id")
-    suspend fun updateMeal(
+    suspend fun updateFood(
         id: Int,
         name: String,
         carbo: Int,

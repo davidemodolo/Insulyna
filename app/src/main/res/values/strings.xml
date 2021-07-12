@@ -68,6 +68,7 @@
     <string name="placeholder_food">Cibo placeholder</string>
     <string name="placeholder_carboinfood">125g/100g carbo</string>
     <string name="add_food">AGGIUNGI CIBO</string>
+    <string name="edit_food">MODIFICA CIBO</string>
 
     <string name="disclaimer_text">Quest\'app è stata pensata per semplificare il calcolo dei carboidrati e delle unità di insulina per la mia fidanzata che ha il diabete di tipo 1.\nDa utilizzare <u>con la testa</u> e solamente come conferma dei propri calcoli.\nLo sviluppatore non si assume alcuna responsabilità in caso di danni e/o problemi dovuti all\'utilizzo della stessa.</string>
     <string name="disclaimer_image">disclaimer image</string>

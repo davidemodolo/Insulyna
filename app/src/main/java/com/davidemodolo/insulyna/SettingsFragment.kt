@@ -35,7 +35,7 @@ class SettingsFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_settings, container, false)
         val btnBack = view.findViewById<ImageView>(R.id.btnBack)
         btnBack.setOnClickListener {
-            findNavController().navigate(R.id.mainFragment)
+            findNavController().navigateUp()
         }
         val sharedPref: SharedPreferences? = activity?.getSharedPreferences(PREF_NAME, 0)
         var daily = sharedPref?.getFloat(DAILY, 0.0F)
