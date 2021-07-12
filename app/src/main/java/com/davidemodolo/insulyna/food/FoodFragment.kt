@@ -80,11 +80,11 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
             val searchedText = search.text.toString()
             val searchedList = ArrayList<Food>()
             var maxSF = 0.0
-            foods.forEach {//scorro la lista la prima volta per trovare la massima similarità
+            viewModel.foods.value?.forEach {//scorro la lista la prima volta per trovare la massima similarità
                 val sim = similarity(it.name, searchedText)
                 if (sim > maxSF) maxSF = sim
             }
-            foods.forEach {
+            viewModel.foods.value?.forEach {
                 val sim = similarity(it.name, searchedText)
                 if (sim > maxSF / 2) {
                     searchedList.add(it)
@@ -92,7 +92,8 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
             }
             if (searchedText != "") {
                 val sortedFoods = searchedList.sortedBy { it.name }
-                foodRecycler.adapter = FoodAdapter(sortedFoods as ArrayList<Food>, this)
+                if(sortedFoods.isNotEmpty())
+                    foodRecycler.adapter = FoodAdapter(sortedFoods as ArrayList<Food>, this)
             } else {
                 foodRecycler.adapter = FoodAdapter(foods, this)
             }
@@ -170,7 +171,7 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
                     layoutInflater.inflate(R.layout.dialog_bottom_addfood, containerForFunction, false)
                 dialog.setContentView(bottomSheet)
 
-                val dialogTitle = dialog.findViewById<TextView>(R.id.dialogTitle)
+                val dialogTitle = dialog.findViewById<TextView>(R.id.title)
                 dialogTitle?.text = getString(R.string.edit_food)
 
                 val nameText = dialog.findViewById<TextInputEditText>(R.id.nameText)

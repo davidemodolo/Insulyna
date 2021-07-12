@@ -41,13 +41,6 @@ class FoodRepository(app: Application) {
         }
     }
 
-    fun updateFood(food: Food) {
-        CoroutineScope(Dispatchers.IO).launch {
-            foodDAO.updateFood(food.id, food.name, food.carbo, food.piece)
-            foodData.postValue(foodDAO.getAll())
-        }
-    }
-
     /*elimino un pasto dal database attraverso una coroutine per non appesantire il thread principale*/
     fun deleteFood(food: Food) {
         CoroutineScope(Dispatchers.IO).launch {

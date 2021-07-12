@@ -26,9 +26,6 @@ class AppViewModel(val app: Application) : AndroidViewModel(app) {
         foodsdb.deleteFood(food)
     }
 
-    fun updateFood(food: Food) {
-        foodsdb.updateFood(food)
-    }
 
     fun setFoodToAdd(food: Food) {
         foodToEdit = food
