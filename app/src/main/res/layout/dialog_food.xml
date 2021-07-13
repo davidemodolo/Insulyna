@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/marginElements"
+    android:background="@drawable/background"
+    android:padding="@dimen/marginStandard">
+
+    <TextView
+        android:id="@+id/dialogTitle"
+        style="@style/sub_title"
+        android:layout_width="wrap_content"
+        android:layout_margin="@dimen/marginStandard"
+        android:layout_height="wrap_content"
+        android:text="@string/placeholder_food"
+        app:layout_constraintBottom_toTopOf="@id/dialogText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dialogText"
+        style="@style/label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginStandard"
+        android:gravity="start"
+        android:text="@string/carbo_dialog"
+        app:layout_constraintBottom_toTopOf="@id/eatenText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialogTitle" />
+    <TextView
+        android:id="@+id/eatenText"
+        style="@style/label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginStandard"
+        android:gravity="start"
+        android:text="@string/eaten_food_dialog"
+        app:layout_constraintBottom_toTopOf="@id/btnCalculate"
+        app:layout_constraintEnd_toStartOf="@id/eatenValue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialogText" />
+    <EditText
+        android:id="@+id/eatenValue"
+        style="@style/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/eatenText"
+        app:layout_constraintBottom_toBottomOf="@id/eatenText"
+        app:layout_constraintStart_toEndOf="@id/eatenText"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="@string/placeholder_UI"
+        android:layout_margin="@dimen/marginStandard"
+        android:autofillHints="0,00"
+        android:inputType="number" />
+
+
+    <TextView
+        android:id="@+id/btnCalculate"
+        style="@style/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginElements"
+        android:background="@drawable/background_button"
+        android:backgroundTint="?attr/colorPrimary"
+        android:text="@string/calculate_and_add"
+        app:drawableLeftCompat="@drawable/ic_calculator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/eatenText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

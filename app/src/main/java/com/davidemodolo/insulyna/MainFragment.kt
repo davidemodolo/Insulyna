@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
@@ -13,6 +14,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 
 
 class MainFragment : Fragment() {
@@ -47,7 +49,7 @@ class MainFragment : Fragment() {
         val sharedPref: SharedPreferences? = activity?.getSharedPreferences(PREF_NAME, 0)
 
         if (sharedPref?.getBoolean(FIRST_START, true) == true) {
-            //navigate to disclaimer
+            //navigate to disclaimer fragment if it's the first start
             findNavController().navigate(R.id.disclaimerFragment)
         }
 
@@ -59,13 +61,21 @@ class MainFragment : Fragment() {
         rateo = sharedPref.getFloat(RATEO, 0.0F)
         sens = sharedPref.getFloat(SENS, 0.0F)
 
+
         val btnSettings = view.findViewById<ImageView>(R.id.settingsIcon)
         btnSettings.setOnClickListener {
+            btnSettings.startAnimation(AnimationUtils.loadAnimation(requireContext(), R.anim.alpha))
             findNavController().navigate(R.id.settingsFragment)
         }
 
         val btnSavedFood = view.findViewById<TextView>(R.id.btnSavedFood)
         btnSavedFood.setOnClickListener {
+            btnSavedFood.startAnimation(
+                AnimationUtils.loadAnimation(
+                    requireContext(),
+                    R.anim.alpha
+                )
+            )
             findNavController().navigate(R.id.foodFragment)
         }
 
@@ -76,8 +86,7 @@ class MainFragment : Fragment() {
         eatenQuantityEdit = view.findViewById(R.id.eatenQuantityEdit)
         eatenQuantityEdit.addTextChangedListener { calculateCarboToAdd() }
         carboTot = view.findViewById(R.id.editCarboTot)
-        if(viewModel.getCarbo()>0)
-        {
+        if (viewModel.getCarbo() > 0) {
             carboTot.setText(String.format("%.2f", viewModel.getCarbo()))
         }
         carboTot.addTextChangedListener { calculateUI() }
@@ -87,12 +96,13 @@ class MainFragment : Fragment() {
 
         val btnAddCarbo = view.findViewById<TextView>(R.id.btnAddCarbo)
         btnAddCarbo.setOnClickListener {
+            btnAddCarbo.startAnimation(AnimationUtils.loadAnimation(requireContext(), R.anim.alpha))
             val totalTMP = if (carboTot.text.toString() == "") 0.0F
             else {
                 stringToFloat(carboTot.text.toString())
             }
             val value = totalTMP + stringToFloat(addCarboEdit.text.toString())
-            if(value != 0.0F) {
+            if (value != 0.0F) {
                 carboTot.setText(String.format("%.2f", value))
                 viewModel.setCarbo(value)
             }
@@ -107,6 +117,7 @@ class MainFragment : Fragment() {
 
         val btnReset = view.findViewById<ImageView>(R.id.btnReset)
         btnReset.setOnClickListener {
+            btnReset.startAnimation(AnimationUtils.loadAnimation(requireContext(), R.anim.rotate))
             viewModel.resetFoodToAdd()
             viewModel.setCarbo(0.0F)
             addCarboEdit.setText("")
@@ -121,16 +132,29 @@ class MainFragment : Fragment() {
             glycemiaEdit.clearFocus()
         }
 
-
         val foodTMP = viewModel.getFoodToAdd()
-        if (foodTMP != null) {
-            if (foodTMP.piece)
-                addCarboEdit.setText(foodTMP.carbo.toString())
-            else
-                carboOn100Edit.setText(foodTMP.carbo.toString())
+        if (foodTMP.first > 0) {
+            if (foodTMP.second == 0.0F) {
+                addCarboEdit.setText(foodTMP.first.toString())
+            } else {
+                carboOn100Edit.setText(foodTMP.first.toString())
+                eatenQuantityEdit.setText(foodTMP.second.toString())
+            }
         }
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        if(goal == 0.0F || rateo == 0.0F || sens == 0.0F)
+        {
+            Snackbar.make(
+                view,
+                "Imposta i tuoi valori nelle impostazioni per iniziare",
+                Snackbar.LENGTH_LONG
+            ).show()
+        }
     }
 
     private fun stringToFloat(string: String): Float {
@@ -145,8 +169,7 @@ class MainFragment : Fragment() {
         return stringTMP.toFloat()
     }
 
-
-    private fun calculateUI() {
+    private fun calculateUI() { //function to calculate UI
         if (sens != 0.0F) {
             val carboTOT = stringToFloat(carboTot.text.toString())
             viewModel.setCarbo(carboTOT)
@@ -159,10 +182,10 @@ class MainFragment : Fragment() {
         }
     }
 
-    private fun calculateCarboToAdd(){
+    private fun calculateCarboToAdd() { //function to calculate the proportion from the table
         val carbo = stringToFloat(carboOn100Edit.text.toString())
         val eaten = stringToFloat(eatenQuantityEdit.text.toString())
-        val result = carbo*eaten/100
+        val result = carbo * eaten / 100
         addCarboEdit.setText(String.format("%.2f", result))
     }
 

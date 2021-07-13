@@ -6,10 +6,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 
 
 class DisclaimerFragment : Fragment() {
@@ -37,6 +39,7 @@ class DisclaimerFragment : Fragment() {
 
         proceed.setOnClickListener {
             if (check.isChecked) {
+                proceed.startAnimation(AnimationUtils.loadAnimation(requireContext(), R.anim.alpha))
                 findNavController().navigate(R.id.mainFragment)
                 val editor = sharedPref?.edit()
                 editor?.putBoolean(FIRST_START, false)

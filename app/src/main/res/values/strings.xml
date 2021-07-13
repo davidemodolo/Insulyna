@@ -66,12 +66,12 @@
     <string name="background_image">background image</string>
     <string name="add_fab">add fab</string>
     <string name="placeholder_food">Cibo placeholder</string>
-    <string name="placeholder_carboinfood">125g/100g carbo</string>
+    <string name="placeholder_carboinfood">125g/100g</string>
     <string name="add_food">AGGIUNGI CIBO</string>
     <string name="edit_food">MODIFICA CIBO</string>
 
     <!-- DISCLAIMER -->
-    <string name="disclaimer_text">Quest\'app è stata pensata per semplificare il calcolo dei carboidrati e delle unità di insulina.\nNon sono un medico; i dati, le informazioni e i calcoli non sono stati approvati da alcun medico.\nDa utilizzare <u>con la testa</u> e solamente come conferma dei propri calcoli.\nLo sviluppatore non si assume alcuna responsabilità in caso di danni e/o problemi dovuti all\'utilizzo della stessa.</string>
+    <string name="disclaimer_text">Quest\'app è stata pensata per semplificare la conta dei carboidrati e delle unità di insulina.\nNon sono un medico; i dati, le informazioni e i calcoli non sono stati approvati da alcun medico.\nDa utilizzare <u>con la testa</u> e solamente come conferma dei propri calcoli.\nLo sviluppatore non si assume alcuna responsabilità in caso di danni e/o problemi dovuti all\'utilizzo della stessa.</string>
     <string name="disclaimer_image">disclaimer image</string>
     <string name="disclaimer_button">Capisco e desidero procedere</string>
     <string name="disclaimer_title">ATTENZIONE</string>
@@ -85,5 +85,8 @@
         <li><a href="https://www.youtube.com/watch?v=2mQhDOtrDCE">Canale Youtube \"Diabete\"</a>: per la raccolta di informazioni e formule matematiche;</li>\n
         <li><a href="https://github.com/MiraxhTereziu">Miraxh</a>: studente al Master in Human-Computer Interaction che ha disegnato l\'icona e aiutato lo sviluppo.</li>
     </string>
+    <string name="calculate_and_add">Calcola e porta alla home</string>
+    <string name="eaten_food_dialog">Grammi di cibo mangiati:</string>
+    <string name="carbo_dialog">Carbo in 100g di prodotto:</string>
 
 </resources>

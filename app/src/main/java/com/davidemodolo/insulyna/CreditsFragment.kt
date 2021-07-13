@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
@@ -21,6 +22,7 @@ class CreditsFragment : Fragment() {
 
         val btnBack = view.findViewById<ImageView>(R.id.btnBack)
         btnBack.setOnClickListener {
+            btnBack.startAnimation(AnimationUtils.loadAnimation(requireContext(), R.anim.alpha))
             findNavController().navigateUp()
         }
 

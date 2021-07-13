@@ -3,6 +3,7 @@ package com.davidemodolo.insulyna.food
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +16,7 @@ class FoodAdapter(private val foodList: ArrayList<Food>, private val foodListene
     private val MAIN = 1
     private val EDIT = 2
     private val DELETE = 3
+    private val LONGPRESS = 4
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name: TextView = itemView.findViewById(R.id.name)
@@ -56,6 +58,7 @@ class FoodAdapter(private val foodList: ArrayList<Food>, private val foodListene
                 foodListener.onFoodListener(food, holder.layoutPosition, MAIN)
             }
             holder.itemView.setOnLongClickListener {
+                //foodListener.onFoodListener(food, holder.layoutPosition, LONGPRESS)
                 if (longPressLayout.visibility == View.VISIBLE)
                     longPressLayout.visibility = View.INVISIBLE
                 else
@@ -66,7 +69,7 @@ class FoodAdapter(private val foodList: ArrayList<Food>, private val foodListene
     }
 
     interface FoodListener {
-        //command: 1 toMain, 2 Edit, 3 Delete
+        //command: 1 toMain, 2 Edit, 3 Delete, 4 Longpress
         fun onFoodListener(
             food: Food,
             position: Int,

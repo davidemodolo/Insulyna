@@ -11,11 +11,15 @@
     <TextView
         android:id="@+id/name"
         style="@style/label"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/marginElements"
+        android:gravity="start"
+        android:paddingStart="@dimen/marginStandard"
+        android:paddingEnd="0dp"
         android:text="@string/placeholder_food"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/foodCarbo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,18 +27,22 @@
     <TextView
         android:id="@+id/foodCarbo"
         style="@style/little_label"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/marginStandard"
+        android:gravity="end"
+        android:paddingStart="0dp"
+        android:paddingEnd="@dimen/marginStandard"
         android:text="@string/placeholder_carboinfood"
         app:layout_constraintBottom_toBottomOf="@id/name"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/name"
         app:layout_constraintTop_toTopOf="@id/name" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/longPressLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:background="@drawable/background_button"
         android:backgroundTint="?attr/colorPrimary"
         android:visibility="invisible"

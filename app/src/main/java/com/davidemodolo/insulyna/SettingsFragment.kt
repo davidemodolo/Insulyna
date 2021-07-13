@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.fragment.findNavController
@@ -53,6 +54,12 @@ class SettingsFragment : Fragment() {
             dailyValue.setText(daily.toString())
         val dailyQuestion = dailyLayout.findViewById<ImageView>(R.id.preferenceQuestion)
         dailyQuestion.setOnClickListener {
+            dailyQuestion.startAnimation(
+                AnimationUtils.loadAnimation(
+                    requireContext(),
+                    R.anim.alpha
+                )
+            )
             questionDialogFun(
                 getString(R.string.dailyUI_extended),
                 getString(R.string.dailyUI_description)
@@ -67,6 +74,12 @@ class SettingsFragment : Fragment() {
             goalValue.setText(goal.toString())
         val goalQuestion = goalLayout.findViewById<ImageView>(R.id.preferenceQuestion)
         goalQuestion.setOnClickListener {
+            goalQuestion.startAnimation(
+                AnimationUtils.loadAnimation(
+                    requireContext(),
+                    R.anim.alpha
+                )
+            )
             questionDialogFun(
                 getString(R.string.goal_extended),
                 getString(R.string.goal_description)
@@ -81,6 +94,12 @@ class SettingsFragment : Fragment() {
             rateoValue.setText(rateo.toString())
         val rateoQuestion = rateoLayout.findViewById<ImageView>(R.id.preferenceQuestion)
         rateoQuestion.setOnClickListener {
+            rateoQuestion.startAnimation(
+                AnimationUtils.loadAnimation(
+                    requireContext(),
+                    R.anim.alpha
+                )
+            )
             questionDialogFun(
                 getString(R.string.rateo_extended),
                 getString(R.string.rateo_description)
@@ -95,6 +114,12 @@ class SettingsFragment : Fragment() {
             sensValue.setText(sens.toString())
         val sensQuestion = sensLayout.findViewById<ImageView>(R.id.preferenceQuestion)
         sensQuestion.setOnClickListener {
+            sensQuestion.startAnimation(
+                AnimationUtils.loadAnimation(
+                    requireContext(),
+                    R.anim.alpha
+                )
+            )
             questionDialogFun(
                 getString(R.string.sensibility_extended),
                 getString(R.string.sensibility_description)
@@ -103,6 +128,7 @@ class SettingsFragment : Fragment() {
 
         val btnSave = view.findViewById<TextView>(R.id.btnSavePreference)
         btnSave.setOnClickListener {
+            btnSave.startAnimation(AnimationUtils.loadAnimation(requireContext(), R.anim.alpha))
             daily = stringToFloat(dailyValue.text.toString())
             goal = stringToFloat(goalValue.text.toString())
             rateo = stringToFloat(rateoValue.text.toString())
@@ -135,11 +161,13 @@ class SettingsFragment : Fragment() {
         }*/
         val btnCredits = view.findViewById<TextView>(R.id.btnCredits)
         btnCredits.setOnClickListener {
+            btnCredits.startAnimation(AnimationUtils.loadAnimation(requireContext(), R.anim.alpha))
             findNavController().navigate(R.id.creditsFragment)
         }
 
         val btnTheme = view.findViewById<TextView>(R.id.btnTheme)
         btnTheme.setOnClickListener {
+            btnTheme.startAnimation(AnimationUtils.loadAnimation(requireContext(), R.anim.alpha))
             selectThemeColor()
         }
         var value = 0
@@ -238,6 +266,12 @@ class SettingsFragment : Fragment() {
         when (title) {
             getString(R.string.rateo_extended) -> {
                 dialogBtn.setOnClickListener {
+                    dialogBtn.startAnimation(
+                        AnimationUtils.loadAnimation(
+                            requireContext(),
+                            R.anim.alpha
+                        )
+                    )
                     val value = stringToFloat(dailyValue.text.toString())
                     if (value != 0.0F) {
                         val result = 500.0F / value
@@ -259,6 +293,12 @@ class SettingsFragment : Fragment() {
             }
             getString(R.string.sensibility_extended) -> {
                 dialogBtn.setOnClickListener {
+                    dialogBtn.startAnimation(
+                        AnimationUtils.loadAnimation(
+                            requireContext(),
+                            R.anim.alpha
+                        )
+                    )
                     val value = stringToFloat(dailyValue.text.toString())
                     if (value != 0.0F) {
                         val result = 1800.0F / stringToFloat(dailyValue.text.toString())

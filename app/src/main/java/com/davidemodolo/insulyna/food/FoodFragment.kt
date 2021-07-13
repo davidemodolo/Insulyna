@@ -1,10 +1,16 @@
 package com.davidemodolo.insulyna.food
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
+import android.view.animation.AnimationUtils
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -27,6 +33,7 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
     private val MAIN = 1
     private val EDIT = 2
     private val DELETE = 3
+    private val LONGPRESS = 4
 
     private var foods = ArrayList<Food>()
     private lateinit var foodRecycler: RecyclerView
@@ -37,12 +44,15 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
         savedInstanceState: Bundle?
     ): View {
         val view = inflater.inflate(R.layout.fragment_food, container, false)
+        /*container created for the onFoodListener function*/
         containerForFunction = container!!
+        /*back button to go Home*/
         val btnBack = view.findViewById<ImageView>(R.id.btnBack)
         btnBack.setOnClickListener {
+            btnBack.startAnimation(AnimationUtils.loadAnimation(requireContext(), R.anim.alpha))
             findNavController().navigateUp()
         }
-
+        /*recylerview that contains the list of foods*/
         foodRecycler = view.findViewById(R.id.recyclerFood)
 
         val fab = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
@@ -57,6 +67,7 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
             val btnPiece = dialog.findViewById<TextView>(R.id.switchB)
 
             btn100?.setOnClickListener {
+                btn100.startAnimation(AnimationUtils.loadAnimation(requireContext(), R.anim.alpha))
                 val nameTmp = nameText?.text.toString()
                 val carboTmp = carboText?.text.toString()
                 if (nameTmp != "" && carboTmp != "") {
@@ -65,6 +76,12 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
                 }
             }
             btnPiece?.setOnClickListener {
+                btnPiece.startAnimation(
+                    AnimationUtils.loadAnimation(
+                        requireContext(),
+                        R.anim.alpha
+                    )
+                )
                 val nameTmp = nameText?.text.toString()
                 val carboTmp = carboText?.text.toString()
                 if (nameTmp != "" && carboTmp != "") {
@@ -80,7 +97,7 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
             val searchedText = search.text.toString()
             val searchedList = ArrayList<Food>()
             var maxSF = 0.0
-            viewModel.foods.value?.forEach {//scorro la lista la prima volta per trovare la massima similarità
+            viewModel.foods.value?.forEach {//i look for max similarity
                 val sim = similarity(it.name, searchedText)
                 if (sim > maxSF) maxSF = sim
             }
@@ -91,9 +108,8 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
                 }
             }
             if (searchedText != "") {
-                val sortedFoods = searchedList.sortedBy { it.name }
-                if(sortedFoods.isNotEmpty())
-                    foodRecycler.adapter = FoodAdapter(sortedFoods as ArrayList<Food>, this)
+                if (searchedList.isNotEmpty())
+                    foodRecycler.adapter = FoodAdapter(searchedList, this)
             } else {
                 foodRecycler.adapter = FoodAdapter(foods, this)
             }
@@ -145,7 +161,7 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
         viewModel = ViewModelProvider(requireActivity()).get(AppViewModel::class.java)
         viewModel.foods.observe(viewLifecycleOwner, { mutableList ->
             foods = mutableList as ArrayList<Food>
-            foodRecycler.adapter =FoodAdapter(foods, this)
+            foodRecycler.adapter = FoodAdapter(foods, this)
         })
 
     }
@@ -153,14 +169,54 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
     override fun onFoodListener(food: Food, position: Int, command: Int) {
         when (command) {
             MAIN -> {
-                viewModel.setFoodToAdd(food)
-                val text = "${food.name} riportato"
-                Toast.makeText(
-                    requireContext(),
-                    text,
-                    Toast.LENGTH_SHORT
-                ).show()
-                findNavController().navigate(R.id.mainFragment)
+                if (!food.piece) {
+                    val dialog = Dialog(requireContext())
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+                    dialog.setCancelable(true)
+                    dialog.setContentView(R.layout.dialog_food)
+                    dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+                    val title = dialog.findViewById<TextView>(R.id.dialogTitle)
+                    title.text = food.name
+
+                    val description = dialog.findViewById<TextView>(R.id.dialogText)
+                    val descTMP = getString(R.string.carbo_dialog) + " " + food.carbo + "g"
+                    description.text = descTMP
+
+                    val eaten = dialog.findViewById<EditText>(R.id.eatenValue)
+                    val btn = dialog.findViewById<TextView>(R.id.btnCalculate)
+                    btn.setOnClickListener {
+                        btn.startAnimation(
+                            AnimationUtils.loadAnimation(
+                                requireContext(),
+                                R.anim.alpha
+                            )
+                        )
+                        val eatenString = eaten.text.toString()
+                        if (eatenString != "" && stringToFloat(eatenString) > 0) {
+                            viewModel.setFoodToAdd(food.carbo, stringToFloat(eatenString))
+                            val text = "${food.name} riportato"
+                            Toast.makeText(
+                                requireContext(),
+                                text,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            findNavController().navigate(R.id.mainFragment)
+                            dialog.dismiss()
+                        }
+                    }
+                    dialog.show()
+                } else {
+                    viewModel.setFoodToAdd(food.carbo, 0.0F)
+                    val text = "${food.name} riportato"
+                    Toast.makeText(
+                        requireContext(),
+                        text,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    findNavController().navigate(R.id.mainFragment)
+                }
+
             }
             DELETE -> {
                 viewModel.deleteFood(food)
@@ -168,7 +224,11 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
             EDIT -> {
                 val dialog = BottomSheetDialog(requireContext())
                 val bottomSheet =
-                    layoutInflater.inflate(R.layout.dialog_bottom_addfood, containerForFunction, false)
+                    layoutInflater.inflate(
+                        R.layout.dialog_bottom_addfood,
+                        containerForFunction,
+                        false
+                    )
                 dialog.setContentView(bottomSheet)
 
                 val dialogTitle = dialog.findViewById<TextView>(R.id.title)
@@ -182,6 +242,12 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
                 val btnPiece = dialog.findViewById<TextView>(R.id.switchB)
 
                 btn100?.setOnClickListener {
+                    btn100.startAnimation(
+                        AnimationUtils.loadAnimation(
+                            requireContext(),
+                            R.anim.alpha
+                        )
+                    )
                     val nameTmp = nameText?.text.toString()
                     val carboTmp = carboText?.text.toString()
                     if (nameTmp != "" && carboTmp != "") {
@@ -191,6 +257,12 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
                     }
                 }
                 btnPiece?.setOnClickListener {
+                    btnPiece.startAnimation(
+                        AnimationUtils.loadAnimation(
+                            requireContext(),
+                            R.anim.alpha
+                        )
+                    )
                     val nameTmp = nameText?.text.toString()
                     val carboTmp = carboText?.text.toString()
                     if (nameTmp != "" && carboTmp != "") {
@@ -210,8 +282,18 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
                 ).show()
             }
         }
+    }
 
-
+    private fun stringToFloat(string: String): Float {
+        if (string == "") return 0.0F
+        var stringTMP = ""
+        string.forEach {
+            stringTMP += if (it == ',')
+                '.'
+            else
+                it
+        }
+        return stringTMP.toFloat()
     }
 
 }

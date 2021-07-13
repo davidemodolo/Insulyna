@@ -8,12 +8,12 @@ import com.davidemodolo.insulyna.food.db.FoodRepository
 
 
 class AppViewModel(val app: Application) : AndroidViewModel(app) {
-    private var foodToEdit: Food? = null
+    private var foodToAdd = Pair(0, 0.0F) //<Int, Float>
     private var carbo = 0.0F
     private val foodsdb = FoodRepository(app)
     var foods = MutableLiveData<List<Food>>()
 
-    init{
+    init {
         foodsdb.getAll()
         foods = foodsdb.foodData
     }
@@ -21,22 +21,22 @@ class AppViewModel(val app: Application) : AndroidViewModel(app) {
     fun insertFood(food: Food) {
         foodsdb.insertFood(food)
     }
+
     /*rimozione pasto sia dal DB locale che da Firebase*/
     fun deleteFood(food: Food) {
         foodsdb.deleteFood(food)
     }
 
-
-    fun setFoodToAdd(food: Food) {
-        foodToEdit = food
+    fun setFoodToAdd(carbo: Int, eaten: Float) {
+        foodToAdd = Pair(carbo, eaten)
     }
 
-    fun getFoodToAdd(): Food? {
-        return foodToEdit
+    fun getFoodToAdd(): Pair<Int, Float> {
+        return foodToAdd
     }
 
     fun resetFoodToAdd() {
-        foodToEdit = null
+        foodToAdd = Pair(0, 0.0F)
     }
 
     fun getCarbo(): Float {
