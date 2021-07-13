@@ -33,4 +33,9 @@
         android:label="fragment_disclaimer"
         tools:layout="@layout/fragment_disclaimer" >
     </fragment>
+    <fragment
+        android:id="@+id/creditsFragment"
+        android:name="com.davidemodolo.insulyna.CreditsFragment"
+        android:label="fragment_credits"
+        tools:layout="@layout/fragment_credits" />
 </navigation>

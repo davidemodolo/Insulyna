@@ -28,6 +28,8 @@ class SettingsFragment : Fragment() {
     private lateinit var rateoValue: EditText
     private lateinit var sensValue: EditText
 
+    private var currentTime = System.currentTimeMillis()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -122,7 +124,7 @@ class SettingsFragment : Fragment() {
 
         }
 
-        val btnBackup = view.findViewById<TextView>(R.id.btnBackup)
+        /*val btnBackup = view.findViewById<TextView>(R.id.btnBackup)
         btnBackup.setOnClickListener {
             val dialog = Dialog(requireContext())
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -130,11 +132,35 @@ class SettingsFragment : Fragment() {
             dialog.setContentView(R.layout.dialog_backup)
             dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             dialog.show()
+        }*/
+        val btnCredits = view.findViewById<TextView>(R.id.btnCredits)
+        btnCredits.setOnClickListener {
+            findNavController().navigate(R.id.creditsFragment)
         }
 
         val btnTheme = view.findViewById<TextView>(R.id.btnTheme)
         btnTheme.setOnClickListener {
             selectThemeColor()
+        }
+        var value = 0
+        val ded = view.findViewById<TextView>(R.id.dedication)
+        ded.setOnClickListener {
+            val current = System.currentTimeMillis()
+            if ((current - currentTime) < 500) {
+                value++
+                if (value == 6) {
+                    Toast.makeText(
+                        requireContext(),
+                        "TI AMO GIULIA",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    value = 0
+                }
+            } else {
+                value = 0
+            }
+            currentTime = current
+
         }
 
 

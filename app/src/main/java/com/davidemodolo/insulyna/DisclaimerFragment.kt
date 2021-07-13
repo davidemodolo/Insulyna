@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 
 
-
 class DisclaimerFragment : Fragment() {
     private val PREF_NAME = "data"
     private val FIRST_START = "start"
@@ -30,7 +29,7 @@ class DisclaimerFragment : Fragment() {
             if (isChecked) {
                 proceed.visibility = View.VISIBLE
             } else {
-                proceed.visibility = View.GONE
+                proceed.visibility = View.INVISIBLE
             }
 
         }
@@ -44,8 +43,6 @@ class DisclaimerFragment : Fragment() {
                 editor?.apply()
             }
         }
-
-
         return view
     }
 

@@ -70,11 +70,20 @@
     <string name="add_food">AGGIUNGI CIBO</string>
     <string name="edit_food">MODIFICA CIBO</string>
 
-    <string name="disclaimer_text">Quest\'app è stata pensata per semplificare il calcolo dei carboidrati e delle unità di insulina per la mia fidanzata che ha il diabete di tipo 1.\nDa utilizzare <u>con la testa</u> e solamente come conferma dei propri calcoli.\nLo sviluppatore non si assume alcuna responsabilità in caso di danni e/o problemi dovuti all\'utilizzo della stessa.</string>
+    <!-- DISCLAIMER -->
+    <string name="disclaimer_text">Quest\'app è stata pensata per semplificare il calcolo dei carboidrati e delle unità di insulina.\nNon sono un medico; i dati, le informazioni e i calcoli non sono stati approvati da alcun medico.\nDa utilizzare <u>con la testa</u> e solamente come conferma dei propri calcoli.\nLo sviluppatore non si assume alcuna responsabilità in caso di danni e/o problemi dovuti all\'utilizzo della stessa.</string>
     <string name="disclaimer_image">disclaimer image</string>
     <string name="disclaimer_button">Capisco e desidero procedere</string>
-    <string name="disclaimer_title">STOP!</string>
+    <string name="disclaimer_title">ATTENZIONE</string>
     <string name="disclaimer_check">L\'utente si assume ogni responsabilità</string>
 
+    <!-- CREDITS -->
+    <string name="credits_giulia">Quest\'app è stata pensata e sviluppata come regalo per la mia fidanzata Giulia (auguri Giulietta ♡).\nSpero possa tornare utile anche ad altre persone.</string>
+    <string name="credits_text"><b>Aiuti nello sviluppo:</b>\n
+        <li><a href="https://github.com/davide-mod/Insulyna">GitHub</a>: dove è visibile il codice sorgente e puoi supportare il mio lavoro;</li>\n
+        <li><a href="https://www.figma.com/community/plugin/735098390272716381/Iconify">Iconify</a>: plugin della piattaforma Figma per il design e le icone;</li>\n
+        <li><a href="https://www.youtube.com/watch?v=2mQhDOtrDCE">Canale Youtube \"Diabete\"</a>: per la raccolta di informazioni e formule matematiche;</li>\n
+        <li><a href="https://github.com/MiraxhTereziu">Miraxh</a>: studente al Master in Human-Computer Interaction che ha disegnato l\'icona e aiutato lo sviluppo.</li>
+    </string>
 
 </resources>
