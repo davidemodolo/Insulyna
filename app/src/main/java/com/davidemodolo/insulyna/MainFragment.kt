@@ -79,7 +79,6 @@ class MainFragment : Fragment() {
             findNavController().navigate(R.id.foodFragment)
         }
 
-
         addCarboEdit = view.findViewById(R.id.addCarboEdit)
         carboOn100Edit = view.findViewById(R.id.carboOn100Edit)
         carboOn100Edit.addTextChangedListener { calculateCarboToAdd() }
@@ -92,7 +91,6 @@ class MainFragment : Fragment() {
         carboTot.addTextChangedListener { calculateUI() }
         glycemiaEdit = view.findViewById(R.id.glycemiaEdit)
         glycemiaEdit.addTextChangedListener { calculateUI() }
-
 
         val btnAddCarbo = view.findViewById<TextView>(R.id.btnAddCarbo)
         btnAddCarbo.setOnClickListener {
@@ -147,13 +145,16 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if(goal == 0.0F || rateo == 0.0F || sens == 0.0F)
-        {
-            Snackbar.make(
-                view,
-                "Imposta i tuoi valori nelle impostazioni per iniziare",
-                Snackbar.LENGTH_LONG
-            ).show()
+        val sharedPref: SharedPreferences? = activity?.getSharedPreferences(PREF_NAME, 0)
+
+        if (sharedPref?.getBoolean(FIRST_START, true) == false) {
+            if (goal == 0.0F || rateo == 0.0F || sens == 0.0F) {
+                Snackbar.make(
+                    view,
+                    "Imposta i tuoi valori nelle impostazioni per iniziare",
+                    Snackbar.LENGTH_LONG
+                ).show()
+            }
         }
     }
 
