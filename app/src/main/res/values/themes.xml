@@ -15,6 +15,7 @@
         <!-- Customize your theme here. -->
         <item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialog</item>
     </style>
+
     <style name="ThemePink" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/pink</item>
@@ -26,6 +27,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialog</item>
     </style>
+
     <style name="ThemeRed" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/red</item>
@@ -37,6 +39,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialog</item>
     </style>
+
     <style name="ThemePurple" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple</item>
@@ -48,6 +51,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialog</item>
     </style>
+
     <style name="ThemeBlue" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blue</item>
@@ -59,6 +63,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialog</item>
     </style>
+
     <style name="ThemeYellow" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/yellow</item>
@@ -100,6 +105,7 @@
         <item name="android:textStyle">normal</item>
         <item name="android:gravity">center</item>
     </style>
+
     <style name="editText">
         <item name="hintTextColor">?attr/colorPrimaryVariant</item>
         <item name="android:textSize">@dimen/label</item>

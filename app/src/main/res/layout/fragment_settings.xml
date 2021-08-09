@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/settings"
-    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SettingsFragment">
@@ -61,21 +60,213 @@
             android:layout_margin="@dimen/marginStandard"
             android:text="@string/values_title" />
 
-        <include
-            android:id="@+id/daily"
-            layout="@layout/layout_values" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <include
-            android:id="@+id/goal"
-            layout="@layout/layout_values" />
+            <TextView
+                android:id="@+id/dailyName"
+                style="@style/label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginElements"
+                android:layout_marginEnd="@dimen/marginStandard"
+                android:layout_marginBottom="@dimen/marginStandard"
+                android:gravity="center"
+                android:text="@string/dailyUI_label"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/dailyValue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <include
-            android:id="@+id/rateo"
-            layout="@layout/layout_values" />
+            <EditText
+                android:id="@+id/dailyValue"
+                style="@style/label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginStandard"
+                android:layout_marginBottom="@dimen/marginStandard"
+                android:autofillHints="0,00"
+                android:hint="@string/placeholder_UI"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="@id/dailyName"
+                app:layout_constraintEnd_toStartOf="@id/dailyQuestion"
+                app:layout_constraintStart_toEndOf="@id/dailyName"
+                app:layout_constraintTop_toTopOf="@id/dailyName" />
 
-        <include
-            android:id="@+id/sensitivity"
-            layout="@layout/layout_values" />
+            <ImageView
+                android:id="@+id/dailyQuestion"
+                android:layout_width="@dimen/label"
+                android:layout_height="@dimen/label"
+                android:layout_gravity="center"
+                android:layout_marginStart="29dp"
+                android:layout_marginEnd="@dimen/marginStandard"
+                android:contentDescription="@string/question_mark"
+                android:src="@drawable/ic_questionmark"
+                app:layout_constraintBottom_toBottomOf="@id/dailyName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/dailyValue"
+                app:layout_constraintTop_toTopOf="@id/dailyName"
+                app:tint="?attr/colorPrimary" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/goalName"
+                style="@style/label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginElements"
+                android:layout_marginEnd="@dimen/marginStandard"
+                android:layout_marginBottom="@dimen/marginStandard"
+                android:gravity="center"
+                android:text="@string/goal_label"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/goalValue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/goalValue"
+                style="@style/label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginStandard"
+                android:layout_marginBottom="@dimen/marginStandard"
+                android:autofillHints="0,00"
+                android:hint="@string/placeholder_UI"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="@id/goalName"
+                app:layout_constraintEnd_toStartOf="@id/goalQuestion"
+                app:layout_constraintStart_toEndOf="@id/goalName"
+                app:layout_constraintTop_toTopOf="@id/goalName" />
+
+            <ImageView
+                android:id="@+id/goalQuestion"
+                android:layout_width="@dimen/label"
+                android:layout_height="@dimen/label"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/marginStandard"
+                android:layout_marginEnd="@dimen/marginStandard"
+                android:contentDescription="@string/question_mark"
+                android:src="@drawable/ic_questionmark"
+                app:layout_constraintBottom_toBottomOf="@id/goalName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/goalValue"
+                app:layout_constraintTop_toTopOf="@id/goalName"
+                app:tint="?attr/colorPrimary" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/rateoName"
+                style="@style/label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginElements"
+                android:layout_marginEnd="@dimen/marginStandard"
+                android:layout_marginBottom="@dimen/marginStandard"
+                android:gravity="center"
+                android:text="@string/rateo_label"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/rateoValue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/rateoValue"
+                style="@style/label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginStandard"
+                android:layout_marginBottom="@dimen/marginStandard"
+                android:autofillHints="0,00"
+                android:hint="@string/placeholder_UI"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="@id/rateoName"
+                app:layout_constraintEnd_toStartOf="@id/rateoQuestion"
+                app:layout_constraintStart_toEndOf="@id/rateoName"
+                app:layout_constraintTop_toTopOf="@id/rateoName" />
+
+            <ImageView
+                android:id="@+id/rateoQuestion"
+                android:layout_width="@dimen/label"
+                android:layout_height="@dimen/label"
+                android:layout_gravity="center"
+                android:layout_marginStart="29dp"
+                android:layout_marginEnd="@dimen/marginStandard"
+                android:contentDescription="@string/question_mark"
+                android:src="@drawable/ic_questionmark"
+                app:layout_constraintBottom_toBottomOf="@id/rateoName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rateoValue"
+                app:layout_constraintTop_toTopOf="@id/rateoName"
+                app:tint="?attr/colorPrimary" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/sensitivityName"
+                style="@style/label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginElements"
+                android:layout_marginEnd="@dimen/marginStandard"
+                android:layout_marginBottom="@dimen/marginStandard"
+                android:gravity="center"
+                android:text="@string/sensibility_label"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/sensitivityValue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/sensitivityValue"
+                style="@style/label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginStandard"
+                android:layout_marginBottom="@dimen/marginStandard"
+                android:autofillHints="0,00"
+                android:hint="@string/placeholder_UI"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="@id/sensitivityName"
+                app:layout_constraintEnd_toStartOf="@id/sensitivityQuestion"
+                app:layout_constraintStart_toEndOf="@id/sensitivityName"
+                app:layout_constraintTop_toTopOf="@id/sensitivityName" />
+
+            <ImageView
+                android:id="@+id/sensitivityQuestion"
+                android:layout_width="@dimen/label"
+                android:layout_height="@dimen/label"
+                android:layout_gravity="center"
+                android:layout_marginStart="29dp"
+                android:layout_marginEnd="@dimen/marginStandard"
+                android:contentDescription="@string/question_mark"
+                android:src="@drawable/ic_questionmark"
+                app:layout_constraintBottom_toBottomOf="@id/sensitivityName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/sensitivityValue"
+                app:layout_constraintTop_toTopOf="@id/sensitivityName"
+                app:tint="?attr/colorPrimary" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/btnSavePreference"
@@ -110,7 +301,6 @@
     <TextView
         android:id="@+id/btnBackup"
         style="@style/button"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/marginElements"
@@ -118,6 +308,7 @@
         android:background="@drawable/background_button"
         android:backgroundTint="?attr/colorPrimary"
         android:text="@string/backup"
+        android:visibility="gone"
         app:drawableStartCompat="@drawable/ic_backup"
         app:layout_constraintBottom_toTopOf="@id/btnTheme"
         app:layout_constraintEnd_toEndOf="parent"

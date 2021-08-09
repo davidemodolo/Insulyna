@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -28,6 +29,7 @@ class SettingsFragment : Fragment() {
     private lateinit var dailyValue: EditText
     private lateinit var rateoValue: EditText
     private lateinit var sensValue: EditText
+    private lateinit var btnSave: TextView
 
     private var currentTime = System.currentTimeMillis()
 
@@ -46,13 +48,10 @@ class SettingsFragment : Fragment() {
         var rateo = sharedPref?.getFloat(RATEO, 0.0F)
         var sens = sharedPref?.getFloat(SENS, 0.0F)
 
-        val dailyLayout = view.findViewById<ConstraintLayout>(R.id.daily)
-        val dailyName = dailyLayout.findViewById<TextView>(R.id.preferenceName)
-        dailyName.text = getString(R.string.dailyUI_label)
-        dailyValue = dailyLayout.findViewById(R.id.preferenceValue)
+        dailyValue = view.findViewById(R.id.dailyValue)
         if (daily != 0.0F)
             dailyValue.setText(daily.toString())
-        val dailyQuestion = dailyLayout.findViewById<ImageView>(R.id.preferenceQuestion)
+        val dailyQuestion = view.findViewById<ImageView>(R.id.dailyQuestion)
         dailyQuestion.setOnClickListener {
             dailyQuestion.startAnimation(
                 AnimationUtils.loadAnimation(
@@ -66,13 +65,10 @@ class SettingsFragment : Fragment() {
             )
         }
 
-        val goalLayout = view.findViewById<ConstraintLayout>(R.id.goal)
-        val goalName = goalLayout.findViewById<TextView>(R.id.preferenceName)
-        goalName.text = getString(R.string.goal_label)
-        val goalValue = goalLayout.findViewById<EditText>(R.id.preferenceValue)
+        val goalValue = view.findViewById<EditText>(R.id.goalValue)
         if (goal != 0.0F)
             goalValue.setText(goal.toString())
-        val goalQuestion = goalLayout.findViewById<ImageView>(R.id.preferenceQuestion)
+        val goalQuestion = view.findViewById<ImageView>(R.id.goalQuestion)
         goalQuestion.setOnClickListener {
             goalQuestion.startAnimation(
                 AnimationUtils.loadAnimation(
@@ -86,13 +82,10 @@ class SettingsFragment : Fragment() {
             )
         }
 
-        val rateoLayout = view.findViewById<ConstraintLayout>(R.id.rateo)
-        val rateoName = rateoLayout.findViewById<TextView>(R.id.preferenceName)
-        rateoName.text = getString(R.string.rateo_label)
-        rateoValue = rateoLayout.findViewById(R.id.preferenceValue)
+        rateoValue = view.findViewById(R.id.rateoValue)
         if (rateo != 0.0F)
             rateoValue.setText(rateo.toString())
-        val rateoQuestion = rateoLayout.findViewById<ImageView>(R.id.preferenceQuestion)
+        val rateoQuestion = view.findViewById<ImageView>(R.id.rateoQuestion)
         rateoQuestion.setOnClickListener {
             rateoQuestion.startAnimation(
                 AnimationUtils.loadAnimation(
@@ -106,13 +99,10 @@ class SettingsFragment : Fragment() {
             )
         }
 
-        val sensLayout = view.findViewById<ConstraintLayout>(R.id.sensitivity)
-        val sensName = sensLayout.findViewById<TextView>(R.id.preferenceName)
-        sensName.text = getString(R.string.sensibility_label)
-        sensValue = sensLayout.findViewById(R.id.preferenceValue)
+        sensValue = view.findViewById(R.id.sensitivityValue)
         if (sens != 0.0F)
             sensValue.setText(sens.toString())
-        val sensQuestion = sensLayout.findViewById<ImageView>(R.id.preferenceQuestion)
+        val sensQuestion = view.findViewById<ImageView>(R.id.sensitivityQuestion)
         sensQuestion.setOnClickListener {
             sensQuestion.startAnimation(
                 AnimationUtils.loadAnimation(
@@ -126,7 +116,7 @@ class SettingsFragment : Fragment() {
             )
         }
 
-        val btnSave = view.findViewById<TextView>(R.id.btnSavePreference)
+        btnSave = view.findViewById(R.id.btnSavePreference)
         btnSave.setOnClickListener {
             btnSave.startAnimation(AnimationUtils.loadAnimation(requireContext(), R.anim.alpha))
             daily = stringToFloat(dailyValue.text.toString())
@@ -171,6 +161,7 @@ class SettingsFragment : Fragment() {
             selectThemeColor()
         }
         var value = 0
+
         val ded = view.findViewById<TextView>(R.id.dedication)
         ded.setOnClickListener {
             val current = System.currentTimeMillis()
@@ -190,7 +181,6 @@ class SettingsFragment : Fragment() {
             currentTime = current
 
         }
-
 
         return view
     }
@@ -276,11 +266,7 @@ class SettingsFragment : Fragment() {
                     if (value != 0.0F) {
                         val result = 500.0F / value
                         rateoValue.setText(String.format("%.2f", result))
-                        val sharedPref: SharedPreferences? =
-                            activity?.getSharedPreferences(PREF_NAME, 0)
-                        val editor = sharedPref?.edit()
-                        editor?.putFloat(RATEO, result)
-                        editor?.apply()
+                        btnSave.performClick()
                         questionDialog.dismiss()
                     } else {
                         Toast.makeText(
@@ -303,11 +289,7 @@ class SettingsFragment : Fragment() {
                     if (value != 0.0F) {
                         val result = 1800.0F / stringToFloat(dailyValue.text.toString())
                         sensValue.setText(String.format("%.2f", result))
-                        val sharedPref: SharedPreferences? =
-                            activity?.getSharedPreferences(PREF_NAME, 0)
-                        val editor = sharedPref?.edit()
-                        editor?.putFloat(SENS, result)
-                        editor?.apply()
+                        btnSave.performClick()
                         questionDialog.dismiss()
                     } else {
                         Toast.makeText(

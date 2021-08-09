@@ -82,8 +82,10 @@ class MainFragment : Fragment() {
         addCarboEdit = view.findViewById(R.id.addCarboEdit)
         carboOn100Edit = view.findViewById(R.id.carboOn100Edit)
         carboOn100Edit.addTextChangedListener { calculateCarboToAdd() }
+
         eatenQuantityEdit = view.findViewById(R.id.eatenQuantityEdit)
         eatenQuantityEdit.addTextChangedListener { calculateCarboToAdd() }
+
         carboTot = view.findViewById(R.id.editCarboTot)
         if (viewModel.getCarbo() > 0) {
             carboTot.setText(String.format("%.2f", viewModel.getCarbo()))
@@ -133,8 +135,11 @@ class MainFragment : Fragment() {
         val foodTMP = viewModel.getFoodToAdd()
         if (foodTMP.first > 0) {
             if (foodTMP.second == 0.0F) {
+                carboOn100Edit.setText("")
+                eatenQuantityEdit.setText("")
                 addCarboEdit.setText(foodTMP.first.toString())
             } else {
+                addCarboEdit.setText("")
                 carboOn100Edit.setText(foodTMP.first.toString())
                 eatenQuantityEdit.setText(foodTMP.second.toString())
             }
@@ -187,7 +192,8 @@ class MainFragment : Fragment() {
         val carbo = stringToFloat(carboOn100Edit.text.toString())
         val eaten = stringToFloat(eatenQuantityEdit.text.toString())
         val result = carbo * eaten / 100
-        addCarboEdit.setText(String.format("%.2f", result))
+        if (result > 0)
+            addCarboEdit.setText(String.format("%.2f", result))
     }
 
 
