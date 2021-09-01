@@ -183,6 +183,8 @@ class MainFragment : Fragment() {
             val result = carboTOT / rateo + (glycemiaTOT - goal) / sens
             if (result > 0)
                 uiValue.text = String.format("%.2f", result)
+            else
+                uiValue.text = getString(R.string.placeholder_UI)
             if (glycemiaTOT == 0.0F)
                 uiValue.text = getString(R.string.placeholder_UI)
         }
