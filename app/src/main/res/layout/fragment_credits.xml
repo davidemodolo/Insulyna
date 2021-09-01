@@ -44,11 +44,12 @@
         style="@style/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/marginElements"
+        android:layout_marginTop="@dimen/marginStandard"
         android:gravity="start"
         android:padding="@dimen/marginStandard"
         android:text="@string/credits_giulia"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/help"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/topBar" />
@@ -56,18 +57,32 @@
     <TextView
         android:id="@+id/help"
         style="@style/label"
-        android:fontFamily="@font/consolas"
-        android:lineSpacingMultiplier="1.5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/marginElements"
+        android:layout_margin="@dimen/marginStandard"
+        android:fontFamily="@font/consolas"
         android:gravity="start"
+        android:lineSpacingMultiplier="1.5"
         android:padding="@dimen/marginStandard"
         android:text="@string/credits_text"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/contactMe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Giulia" />
+
+    <TextView
+        android:id="@+id/contactMe"
+        style="@style/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginElements"
+        android:layout_marginEnd="@dimen/marginElements"
+        android:layout_marginBottom="@dimen/marginStandard"
+        android:text="@string/contact_me"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/help" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

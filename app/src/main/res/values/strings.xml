@@ -85,6 +85,7 @@
         <li><a href="https://www.youtube.com/watch?v=2mQhDOtrDCE">Canale Youtube \"Diabete\"</a>: per la raccolta di informazioni e formule matematiche;</li>\n
         <li><a href="https://github.com/MiraxhTereziu">Miraxh</a>: studente al Master in Human-Computer Interaction che ha disegnato l\'icona e aiutato lo sviluppo.</li>
     </string>
+    <string name = "contact_me">Hai trovato un problema o hai un\'idea per migliorare quest\'app? <u>Scrimi qui</u></string>
     <string name="calculate_and_add">Calcola e porta alla home</string>
     <string name="eaten_food_dialog">Grammi di cibo mangiati:</string>
     <string name="carbo_dialog">Carbo in 100g di prodotto:</string>

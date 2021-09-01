@@ -11,6 +11,9 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import android.content.Intent
+import android.net.Uri
+
 
 class CreditsFragment : Fragment() {
 
@@ -24,6 +27,14 @@ class CreditsFragment : Fragment() {
         btnBack.setOnClickListener {
             btnBack.startAnimation(AnimationUtils.loadAnimation(requireContext(), R.anim.alpha))
             findNavController().navigateUp()
+        }
+
+        val btnContactMe = view.findViewById<TextView>(R.id.contactMe)
+        btnContactMe.setOnClickListener {
+            val i = Intent(Intent.ACTION_SENDTO)
+            i.data = Uri.parse("mailto:dott.modolo+insulyna@gmail.com")
+            i.putExtra(Intent.EXTRA_SUBJECT, "[Insulyna] ....")
+            startActivity(Intent.createChooser(i, "Problema o Idea"))
         }
 
         val help = view.findViewById<TextView>(R.id.help)
