@@ -1,6 +1,7 @@
 package com.davidemodolo.insulyna
 
 import android.app.Dialog
+import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -12,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.view.animation.AnimationUtils
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.fragment.findNavController
@@ -38,10 +40,20 @@ class SettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val view = inflater.inflate(R.layout.fragment_settings, container, false)
+
+        val bg = view.findViewById<ConstraintLayout>(R.id.settings)
+        bg.setOnClickListener{
+            val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view!!.windowToken, 0)
+        }
+
+
         val btnBack = view.findViewById<ImageView>(R.id.btnBack)
         btnBack.setOnClickListener {
             findNavController().navigateUp()
         }
+
+
         val sharedPref: SharedPreferences? = activity?.getSharedPreferences(PREF_NAME, 0)
         var daily = sharedPref?.getFloat(DAILY, 0.0F)
         var goal = sharedPref?.getFloat(GOAL, 0.0F)

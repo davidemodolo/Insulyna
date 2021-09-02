@@ -5,11 +5,11 @@
     <dimen name="bigPadding">32dp</dimen>
     <dimen name="topbarIcons">24dp</dimen>
 
-    <dimen name="label">20sp</dimen>
-    <dimen name="edit_text">20sp</dimen>
-    <dimen name="info">18sp</dimen>
+    <dimen name="label">19sp</dimen>
+    <dimen name="edit_text">19sp</dimen>
+    <dimen name="info">17sp</dimen>
     <dimen name="UI_value">52sp</dimen>
-    <dimen name="button">20dp</dimen>
-    <dimen name="subtitle">28sp</dimen>
-    <dimen name="title">24sp</dimen>
+    <dimen name="button">19dp</dimen>
+    <dimen name="subtitle">26sp</dimen>
+    <dimen name="title">23sp</dimen>
 </resources>

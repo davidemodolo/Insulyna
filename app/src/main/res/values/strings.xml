@@ -30,11 +30,11 @@
     <string name="goal_extended">Obiettivo glicemico</string>
     <string name="goal_description">Valore glicemico che si vuole raggiungere, solitamente fornito dal diabetologo.</string>
     <string name="rateo_label">Insulina/Carboidrati (g):</string>
-    <string name="rateo_description">Quanti grammi di carboidrati vengono metabolizzati da 1 UI di insulina rapida.\nSe non sei in possesso del valore, temporaneamente si può calcolare usando la \"regola del 500\" ma deve essere confermato.</string>
+    <string name="rateo_description">Quanti grammi di carboidrati vengono metabolizzati da 1 UI di insulina rapida.\nSe non sei in possesso del valore, temporaneamente si può calcolare usando la \"regola del 500\" ma deve essere confermato dal medico al più presto.</string>
     <string name="rateo_extended">Rapporto insulina/carboidrati</string>
     <string name="sensibility_label">Sensibilità insulinica (g):</string>
     <string name="sensibility_extended">Fattore di sensibilità insulinica</string>
-    <string name="sensibility_description">Calo glicemico in mg/dl per effetto di 1 UI di insulina rapida.\nSe non sei in possesso del valore, temporaneamente si può calcolare usando la \"regola del 1800\" ma deve essere confermato.</string>
+    <string name="sensibility_description">Calo glicemico in mg/dl per effetto di 1 UI di insulina rapida.\nSe non sei in possesso del valore, temporaneamente si può calcolare usando la \"regola del 1800\" ma deve essere confermato dal medico al più presto.</string>
     <string name="save_button">Salva</string>
     <string name="backup">Backup cibi salvati</string>
     <string name="credits">Crediti e Informazioni</string>

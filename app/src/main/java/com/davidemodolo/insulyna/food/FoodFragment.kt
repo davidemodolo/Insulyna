@@ -1,6 +1,7 @@
 package com.davidemodolo.insulyna.food
 
 import android.app.Dialog
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -10,10 +11,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.view.animation.AnimationUtils
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -44,6 +47,12 @@ class FoodFragment : Fragment(), FoodAdapter.FoodListener {
         savedInstanceState: Bundle?
     ): View {
         val view = inflater.inflate(R.layout.fragment_food, container, false)
+        val bg = view.findViewById<ConstraintLayout>(R.id.foodFrag)
+        bg.setOnClickListener{
+            val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view!!.windowToken, 0)
+        }
+
         /*container created for the onFoodListener function*/
         containerForFunction = container!!
         /*back button to go Home*/
