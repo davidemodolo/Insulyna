@@ -51,7 +51,7 @@ class MainFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_main, container, false)
 
         val bg = view.findViewById<ConstraintLayout>(R.id.main)
-        bg.setOnClickListener{
+        bg.setOnClickListener {
             val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(view!!.windowToken, 0)
         }
@@ -102,7 +102,13 @@ class MainFragment : Fragment() {
         }
         carboTot.addTextChangedListener { calculateUI() }
         glycemiaEdit = view.findViewById(R.id.glycemiaEdit)
-        glycemiaEdit.addTextChangedListener { calculateUI() }
+        if (viewModel.getGlycemia() > 0) {
+            glycemiaEdit.setText(String.format("%.2f", viewModel.getGlycemia()))
+        }
+        glycemiaEdit.addTextChangedListener {
+            viewModel.setGlycemia(stringToFloat(glycemiaEdit.text.toString()))
+            calculateUI()
+        }
 
         val btnAddCarbo = view.findViewById<TextView>(R.id.btnAddCarbo)
         btnAddCarbo.setOnClickListener {
