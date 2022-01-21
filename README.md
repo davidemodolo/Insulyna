@@ -2,6 +2,7 @@
 
 ## Privacy
 **ITA**: Nessun dato viene raccolto e/o condiviso, è una semplice calcolatrice.
+
 **ENG**: No data is collected and/or shared, this app is a simple calculator.
 
 ## Introduzione
