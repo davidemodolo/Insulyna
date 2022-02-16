@@ -5,8 +5,8 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorOnSecondary"
     android:animateLayoutChanges="true"
+    android:background="?attr/colorOnSecondary"
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView

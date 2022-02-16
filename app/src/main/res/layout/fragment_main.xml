@@ -125,7 +125,7 @@
             android:layout_marginEnd="@dimen/marginStandard"
             android:drawablePadding="@dimen/marginStandard"
             android:text="@string/title_meal"
-            app:drawableEndCompat="@drawable/ic_forkknife"
+            app:drawableStartCompat="@drawable/ic_forkknife"
             app:drawableTint="?attr/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
